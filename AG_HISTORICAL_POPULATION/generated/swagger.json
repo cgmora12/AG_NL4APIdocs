@@ -1,0 +1,610 @@
+{
+  "basePath" : "/v1",
+  "paths" : {
+    "/TIME/{TIME}" : {
+      "get" : {
+        "summary" : "GET TIME",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getTIME",
+        "description" : "Find HISTORICAL_POPULATION by TIME.\nThis API method finds HISTORICAL_POPULATION data by TIME. You must filter the results by a specific TIME. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /TIME/2005 or /?TIME=2005 whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "path",
+          "name" : "TIME",
+          "description" : "TIME",
+          "type" : "string",
+          "required" : true
+        } ]
+      }
+    },
+    "/Value/{Value}" : {
+      "get" : {
+        "summary" : "GET Value",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getValue",
+        "description" : "Find HISTORICAL_POPULATION by Value.\nThis API method finds HISTORICAL_POPULATION data by Value. You must filter the results by a specific Value. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /Value/10157211 or /?Value=10157211 whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "path",
+          "name" : "Value",
+          "description" : "Value",
+          "type" : "string",
+          "required" : true
+        } ]
+      }
+    },
+    "/Flags/{Flags}" : {
+      "get" : {
+        "summary" : "GET Flags",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getFlags",
+        "description" : "Find HISTORICAL_POPULATION by Flags.\nThis API method finds HISTORICAL_POPULATION data by Flags. You must filter the results by a specific Flags. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /Flags/ or /?Flags= whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "path",
+          "name" : "Flags",
+          "description" : "Flags",
+          "type" : "string",
+          "required" : true
+        } ]
+      }
+    },
+    "/LOCATION/{LOCATION}" : {
+      "get" : {
+        "summary" : "GET LOCATION",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getLOCATION",
+        "description" : "Find HISTORICAL_POPULATION by LOCATION.\nThis API method finds HISTORICAL_POPULATION data by LOCATION. You must filter the results by a specific LOCATION. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /LOCATION/AUS or /?LOCATION=AUS whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "path",
+          "name" : "LOCATION",
+          "description" : "LOCATION",
+          "type" : "string",
+          "required" : true
+        } ]
+      }
+    },
+    "/visualization" : {
+      "get" : {
+        "summary" : "GET visualization charts",
+        "produces" : [ "text/html" ],
+        "operationId" : "getvisualization",
+        "description" : "Find HISTORICAL_POPULATION by visualization.\nThis API method finds HISTORICAL_POPULATION data by visualization. You must filter the results by a specific visualization. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /visualization/ or /?visualization= whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        } ]
+      }
+    },
+    "/FlagCodes/{FlagCodes}" : {
+      "get" : {
+        "summary" : "GET FlagCodes",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getFlagCodes",
+        "description" : "Find HISTORICAL_POPULATION by FlagCodes.\nThis API method finds HISTORICAL_POPULATION data by FlagCodes. You must filter the results by a specific FlagCodes. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /FlagCodes/ or /?FlagCodes= whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "path",
+          "name" : "FlagCodes",
+          "description" : "FlagCodes",
+          "type" : "string",
+          "required" : true
+        } ]
+      }
+    },
+    "/" : {
+      "get" : {
+        "summary" : "GET HISTORICAL_POPULATION",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getHISTORICAL_POPULATION",
+        "description" : "Find all HISTORICAL_POPULATION.\nThis API method finds all HISTORICAL_POPULATION. You can filter the results by LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is / whose result would include all the records until the default limit. It is possible to specify the limit and the offset parameters in order to paginate the results.",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "LOCATION",
+          "description" : "LOCATION",
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "Country",
+          "description" : "Country",
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "SEX",
+          "description" : "SEX",
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "Sex",
+          "description" : "Sex",
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "AGE",
+          "description" : "AGE",
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "Age",
+          "description" : "Age",
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "TIME",
+          "description" : "TIME",
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "Time",
+          "description" : "Time",
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "Value",
+          "description" : "Value",
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "FlagCodes",
+          "description" : "FlagCodes",
+          "type" : "string"
+        }, {
+          "in" : "query",
+          "name" : "Flags",
+          "description" : "Flags",
+          "type" : "string"
+        } ]
+      }
+    },
+    "/AGE/{AGE}" : {
+      "get" : {
+        "summary" : "GET AGE",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getAGE",
+        "description" : "Find HISTORICAL_POPULATION by AGE.\nThis API method finds HISTORICAL_POPULATION data by AGE. You must filter the results by a specific AGE. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /AGE/TOTAL or /?AGE=TOTAL whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "path",
+          "name" : "AGE",
+          "description" : "AGE",
+          "type" : "string",
+          "required" : true
+        } ]
+      }
+    },
+    "/Time/{Time}" : {
+      "get" : {
+        "summary" : "GET Time",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getTime",
+        "description" : "Find HISTORICAL_POPULATION by Time.\nThis API method finds HISTORICAL_POPULATION data by Time. You must filter the results by a specific Time. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /Time/2005 or /?Time=2005 whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "path",
+          "name" : "Time",
+          "description" : "Time",
+          "type" : "string",
+          "required" : true
+        } ]
+      }
+    },
+    "/Sex/{Sex}" : {
+      "get" : {
+        "summary" : "GET Sex",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getSex",
+        "description" : "Find HISTORICAL_POPULATION by Sex.\nThis API method finds HISTORICAL_POPULATION data by Sex. You must filter the results by a specific Sex. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /Sex/W or /?Sex=W whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "path",
+          "name" : "Sex",
+          "description" : "Sex",
+          "type" : "string",
+          "required" : true
+        } ]
+      }
+    },
+    "/Country/{Country}" : {
+      "get" : {
+        "summary" : "GET Country",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getCountry",
+        "description" : "Find HISTORICAL_POPULATION by Country.\nThis API method finds HISTORICAL_POPULATION data by Country. You must filter the results by a specific Country. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /Country/Australia or /?Country=Australia whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "path",
+          "name" : "Country",
+          "description" : "Country",
+          "type" : "string",
+          "required" : true
+        } ]
+      }
+    },
+    "/Age/{Age}" : {
+      "get" : {
+        "summary" : "GET Age",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getAge",
+        "description" : "Find HISTORICAL_POPULATION by Age.\nThis API method finds HISTORICAL_POPULATION data by Age. You must filter the results by a specific Age. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /Age/TOTAL or /?Age=TOTAL whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "path",
+          "name" : "Age",
+          "description" : "Age",
+          "type" : "string",
+          "required" : true
+        } ]
+      }
+    },
+    "/SEX/{SEX}" : {
+      "get" : {
+        "summary" : "GET SEX",
+        "produces" : [ "application/json", "text/html" ],
+        "operationId" : "getSEX",
+        "description" : "Find HISTORICAL_POPULATION by SEX.\nThis API method finds HISTORICAL_POPULATION data by SEX. You must filter the results by a specific SEX. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /SEX/W or /?SEX=W whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "type" : "string"
+            },
+            "description" : "successful operation"
+          }
+        },
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "limit",
+          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "offset",
+          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n",
+          "type" : "integer"
+        }, {
+          "in" : "query",
+          "name" : "visualization",
+          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n",
+          "type" : "string"
+        }, {
+          "in" : "path",
+          "name" : "SEX",
+          "description" : "SEX",
+          "type" : "string",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "host" : "www.urlprueba.com",
+  "schemes" : [ "https" ],
+  "definitions" : {
+    "mainComponent" : {
+      "xml" : {
+        "name" : "mainComponent"
+      },
+      "type" : "object",
+      "properties" : {
+        "LOCATION" : {
+          "description" : "The property LOCATION is of type string and an example is AUS. This property indicates  the identifier for a point or extent in space.\n",
+          "type" : "string",
+          "example" : "AUS"
+        },
+        "FlagCodes" : {
+          "description" : "The property FlagCodes is of type string. This property indicates the codes ((computer science) the symbolic arrangement of data or instructions in a computer program or the set of such instructions) of flag (emblem usually consisting of a rectangular piece of cloth of distinctive design).\n",
+          "type" : "string",
+          "example" : ""
+        },
+        "SEX" : {
+          "description" : "The property SEX is of type string and an example is W. This property indicates  the identifier for activities associated with sexual intercourse.\n",
+          "type" : "string",
+          "example" : "W"
+        },
+        "Sex" : {
+          "description" : "The property Sex is of type string and an example is Women. This property indicates activities associated with sexual intercourse.\n",
+          "type" : "string",
+          "example" : "Women"
+        },
+        "Value" : {
+          "description" : "The property Value is of type integer and an example is 10157211. This property indicates a numerical quantity measured or assigned or computed.\n",
+          "type" : "integer",
+          "example" : 10157211
+        },
+        "Country" : {
+          "description" : "The property Country is of type string and an example is Australia. This property indicates the territory occupied by a nation.\n",
+          "type" : "string",
+          "example" : "Australia"
+        },
+        "TIME" : {
+          "description" : "The property TIME is of type integer and an example is 2005. This property indicates  the identifier for an instance or single occasion for some event.\n",
+          "type" : "integer",
+          "example" : 2005
+        },
+        "Time" : {
+          "description" : "The property Time is of type integer and an example is 2005. This property indicates an instance or single occasion for some event.\n",
+          "type" : "integer",
+          "example" : 2005
+        },
+        "Flags" : {
+          "description" : "The property Flags is of type string. This property indicates emblem usually consisting of a rectangular piece of cloth of distinctive design.\n",
+          "type" : "string",
+          "example" : ""
+        },
+        "Age" : {
+          "description" : "The property Age is of type string and an example is Total. This property indicates how long something has existed.\n",
+          "type" : "string",
+          "example" : "Total"
+        },
+        "AGE" : {
+          "description" : "The property AGE is of type string and an example is TOTAL. This property indicates  the identifier for how long something has existed.\n",
+          "type" : "string",
+          "example" : "TOTAL"
+        }
+      }
+    }
+  },
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This API returns data about the HISTORICAL_POPULATION, being able to filter by different characteristics, for example: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. The API response will be in JSON format, containing a list of objects with properties: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. In addition, the following parameters can always be used: visualization, which is used to show the information graphically; limit, which serves to limit the maximum number of results to show (default 10000); and offset, to indicate from which number to return from the results set, very useful for pagination results. An example of a query would be the following: localhost:8080/v1/LOCATION/AUS",
+    "title" : "HISTORICAL_POPULATION",
+    "version" : "1.0.0"
+  }
+}

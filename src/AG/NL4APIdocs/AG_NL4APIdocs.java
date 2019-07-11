@@ -1268,13 +1268,17 @@ public class AG_NL4APIdocs {
 	   	        		HashMap<String, String> parameterHashMap = new HashMap<>();
 	   	        		parameterHashMap.put("name", paramName);
 	   	        		
+	   	        		if(!paramName.contentEquals("limit") && !paramName.contentEquals("offset") &&!paramName.contentEquals("visualization")) {
+	   	        			continue;
+	   	        		}
+	   	        		
 	   	        		String example = "";
 	   	        		try {
 		   	        		example = examplesHashMap.get(paramName);
 		   	        		if(example != null) {
 			   	        		parameterHashMap.put("example", example);
 		   	        		} else {
-			   	        		parameterHashMap.put("example", "");
+		   	        			parameterHashMap.put("example", "");
 		   	        		}
 	   	        		} catch(Exception e) {
 	   	            		System.out.println(e.getMessage());
@@ -1327,7 +1331,7 @@ public class AG_NL4APIdocs {
             		methodName = "/";
             	}
         		apiHashMap.put("methodName", methodName);
-                String methodDescription = NLGenT.generateText(apiHashMap, fullParametersList, 1);
+                String methodDescription = NLGenT.generateText(apiHashMap, fullPropertiesList, 1);
                 xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").put("description", methodDescription);
                 System.out.println(methodDescription);
                 fullParametersList.clear();
