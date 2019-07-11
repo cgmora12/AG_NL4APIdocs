@@ -35,78 +35,96 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "LOCATION"
         in: "query"
-        description: "LOCATION"
+        description: "The parameter LOCATION is of type string and an example is AUS.\
+          \ This parameter indicates  the identifier for a point or extent in space.\
+          \ This parameter is not required and must be in query.\n"
         required: false
         type: "string"
       - name: "Country"
         in: "query"
-        description: "Country"
+        description: "The parameter Country is of type string and an example is Australia.\
+          \ This parameter indicates the territory occupied by a nation. This parameter\
+          \ is not required and must be in query.\n"
         required: false
         type: "string"
       - name: "SEX"
         in: "query"
-        description: "SEX"
+        description: "The parameter SEX is of type string and an example is W. This\
+          \ parameter indicates  the identifier for activities associated with sexual\
+          \ intercourse. This parameter is not required and must be in query.\n"
         required: false
         type: "string"
       - name: "Sex"
         in: "query"
-        description: "Sex"
+        description: "The parameter Sex is of type string and an example is Women.\
+          \ This parameter indicates activities associated with sexual intercourse.\
+          \ This parameter is not required and must be in query.\n"
         required: false
         type: "string"
       - name: "AGE"
         in: "query"
-        description: "AGE"
+        description: "The parameter AGE is of type string and an example is TOTAL.\
+          \ This parameter indicates  the identifier for how long something has existed.\
+          \ This parameter is not required and must be in query.\n"
         required: false
         type: "string"
       - name: "Age"
         in: "query"
-        description: "Age"
+        description: "The parameter Age is of type string and an example is Total.\
+          \ This parameter indicates how long something has existed. This parameter\
+          \ is not required and must be in query.\n"
         required: false
         type: "string"
       - name: "TIME"
         in: "query"
-        description: "TIME"
+        description: "The parameter TIME is of type string and an example is 2005.\
+          \ This parameter indicates  the identifier for an instance or single occasion\
+          \ for some event. This parameter is not required and must be in query.\n"
         required: false
         type: "string"
       - name: "Time"
         in: "query"
-        description: "Time"
+        description: "The parameter Time is of type string and an example is 2005.\
+          \ This parameter indicates an instance or single occasion for some event.\
+          \ This parameter is not required and must be in query.\n"
         required: false
         type: "string"
       - name: "Value"
         in: "query"
-        description: "Value"
+        description: "The parameter Value is of type string and an example is 10157211.\
+          \ This parameter indicates a numerical quantity measured or assigned or\
+          \ computed. This parameter is not required and must be in query.\n"
         required: false
         type: "string"
       - name: "FlagCodes"
         in: "query"
-        description: "FlagCodes"
+        description: "The parameter FlagCodes is of type string. This parameter indicates\
+          \ the codes ((computer science) the symbolic arrangement of data or instructions\
+          \ in a computer program or the set of such instructions) of flag (emblem\
+          \ usually consisting of a rectangular piece of cloth of distinctive design).\
+          \ This parameter is not required and must be in query.\n"
         required: false
         type: "string"
       - name: "Flags"
         in: "query"
-        description: "Flags"
+        description: "The parameter Flags is of type string. This parameter indicates\
+          \ emblem usually consisting of a rectangular piece of cloth of distinctive\
+          \ design. This parameter is not required and must be in query.\n"
         required: false
         type: "string"
       responses:
@@ -134,28 +152,24 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "AGE"
         in: "path"
-        description: "AGE"
+        description: "The parameter AGE is of type string and an example is TOTAL.\
+          \ This parameter indicates  the identifier for how long something has existed.\
+          \ This parameter is required and  must be in path.\n"
         required: true
         type: "string"
       responses:
@@ -183,28 +197,24 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "Age"
         in: "path"
-        description: "Age"
+        description: "The parameter Age is of type string and an example is Total.\
+          \ This parameter indicates how long something has existed. This parameter\
+          \ is required and  must be in path.\n"
         required: true
         type: "string"
       responses:
@@ -233,28 +243,24 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "Country"
         in: "path"
-        description: "Country"
+        description: "The parameter Country is of type string and an example is Australia.\
+          \ This parameter indicates the territory occupied by a nation. This parameter\
+          \ is required and  must be in path.\n"
         required: true
         type: "string"
       responses:
@@ -283,28 +289,26 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "FlagCodes"
         in: "path"
-        description: "FlagCodes"
+        description: "The parameter FlagCodes is of type string. This parameter indicates\
+          \ the codes ((computer science) the symbolic arrangement of data or instructions\
+          \ in a computer program or the set of such instructions) of flag (emblem\
+          \ usually consisting of a rectangular piece of cloth of distinctive design).\
+          \ This parameter is required and  must be in path.\n"
         required: true
         type: "string"
       responses:
@@ -332,28 +336,24 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "Flags"
         in: "path"
-        description: "Flags"
+        description: "The parameter Flags is of type string. This parameter indicates\
+          \ emblem usually consisting of a rectangular piece of cloth of distinctive\
+          \ design. This parameter is required and  must be in path.\n"
         required: true
         type: "string"
       responses:
@@ -382,28 +382,24 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "LOCATION"
         in: "path"
-        description: "LOCATION"
+        description: "The parameter LOCATION is of type string and an example is AUS.\
+          \ This parameter indicates  the identifier for a point or extent in space.\
+          \ This parameter is required and  must be in path.\n"
         required: true
         type: "string"
       responses:
@@ -431,28 +427,24 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "SEX"
         in: "path"
-        description: "SEX"
+        description: "The parameter SEX is of type string and an example is W. This\
+          \ parameter indicates  the identifier for activities associated with sexual\
+          \ intercourse. This parameter is required and  must be in path.\n"
         required: true
         type: "string"
       responses:
@@ -480,28 +472,24 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "Sex"
         in: "path"
-        description: "Sex"
+        description: "The parameter Sex is of type string and an example is Women.\
+          \ This parameter indicates activities associated with sexual intercourse.\
+          \ This parameter is required and  must be in path.\n"
         required: true
         type: "string"
       responses:
@@ -529,28 +517,24 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "TIME"
         in: "path"
-        description: "TIME"
+        description: "The parameter TIME is of type string and an example is 2005.\
+          \ This parameter indicates  the identifier for an instance or single occasion\
+          \ for some event. This parameter is required and  must be in path.\n"
         required: true
         type: "string"
       responses:
@@ -578,28 +562,24 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "Time"
         in: "path"
-        description: "Time"
+        description: "The parameter Time is of type string and an example is 2005.\
+          \ This parameter indicates an instance or single occasion for some event.\
+          \ This parameter is required and  must be in path.\n"
         required: true
         type: "string"
       responses:
@@ -628,28 +608,24 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       - name: "visualization"
         in: "query"
-        description: "The parameter visualization is of type string. This parameter\
-          \ indicates a mental image that is similar to a visual perception. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Visualization of the data via charts"
         required: false
         type: "string"
       - name: "Value"
         in: "path"
-        description: "Value"
+        description: "The parameter Value is of type string and an example is 10157211.\
+          \ This parameter indicates a numerical quantity measured or assigned or\
+          \ computed. This parameter is required and  must be in path.\n"
         required: true
         type: "string"
       responses:
@@ -677,16 +653,12 @@ paths:
       parameters:
       - name: "limit"
         in: "query"
-        description: "The parameter limit is of type integer. This parameter indicates\
-          \ the greatest possible degree of something. This parameter is not required\
-          \ and must be in query.\n"
+        description: "Maximum number of results"
         required: false
         type: "integer"
       - name: "offset"
         in: "query"
-        description: "The parameter offset is of type integer. This parameter indicates\
-          \ cause (printed matter) to transfer or smear onto another surface. This\
-          \ parameter is not required and must be in query.\n"
+        description: "Starting index for results"
         required: false
         type: "integer"
       responses:

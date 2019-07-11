@@ -1268,56 +1268,55 @@ public class AG_NL4APIdocs {
 	   	        		HashMap<String, String> parameterHashMap = new HashMap<>();
 	   	        		parameterHashMap.put("name", paramName);
 	   	        		
-	   	        		if(!paramName.contentEquals("limit") && !paramName.contentEquals("offset") &&!paramName.contentEquals("visualization")) {
-	   	        			continue;
-	   	        		}
-	   	        		
-	   	        		String example = "";
-	   	        		try {
-		   	        		example = examplesHashMap.get(paramName);
-		   	        		if(example != null) {
-			   	        		parameterHashMap.put("example", example);
-		   	        		} else {
-		   	        			parameterHashMap.put("example", "");
+	   	        		if(!paramName.contentEquals("limit") && !paramName.contentEquals("offset") && !paramName.contentEquals("visualization")) {
+	   	        					   	        		
+		   	        		String example = "";
+		   	        		try {
+			   	        		example = examplesHashMap.get(paramName);
+			   	        		if(example != null) {
+				   	        		parameterHashMap.put("example", example);
+			   	        		} else {
+			   	        			parameterHashMap.put("example", "");
+			   	        		}
+		   	        		} catch(Exception e) {
+		   	            		System.out.println(e.getMessage());
 		   	        		}
-	   	        		} catch(Exception e) {
-	   	            		System.out.println(e.getMessage());
+		   	        		
+		   	        		String type = "";
+		   	        		try {
+		   	        			type = parametersArray.getJSONObject(parameterIterator).getJSONObject("schema").getString("type");
+		   	        		} catch(Exception e) {
+		   	            		System.out.println(e.getMessage());
+		   	            	}
+		   	        		parameterHashMap.put("type", type);
+		   	        		
+		   	        		String in = "";
+		   	        		try {
+		   	        			in = parametersArray.getJSONObject(parameterIterator).getString("in");
+		   	        		} catch(Exception e) {
+		   	            		System.out.println(e.getMessage());
+		   	            	}
+		   	        		parameterHashMap.put("in", in);
+		   	        		
+		   	        		boolean required = false;
+		   	        		try {
+		   	        			required = parametersArray.getJSONObject(parameterIterator).getBoolean("required");
+		   	        		} catch(Exception e) {
+		   	            		System.out.println(e.getMessage());
+		   	            		required = false;
+		   	            	}
+		   	        		parameterHashMap.put("required", String.valueOf(required));
+		   	        		
+		   	        		parameterHashMap.put("ptype", "parameter");
+		   	        		parametersList.add(parameterHashMap);
+		   	        		fullParametersList.add(parameterHashMap);
+		   	
+		   	                String parameterDescription = NLGenT.generateText(apiHashMap, parametersList, 2);
+		   	                System.out.println(parameterDescription);
+		   	                
+		   	                xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").getJSONArray("parameters")
+		   	             		.getJSONObject(parameterIterator).put("description", parameterDescription);
 	   	        		}
-	   	        		
-	   	        		String type = "";
-	   	        		try {
-	   	        			type = parametersArray.getJSONObject(parameterIterator).getJSONObject("schema").getString("type");
-	   	        		} catch(Exception e) {
-	   	            		System.out.println(e.getMessage());
-	   	            	}
-	   	        		parameterHashMap.put("type", type);
-	   	        		
-	   	        		String in = "";
-	   	        		try {
-	   	        			in = parametersArray.getJSONObject(parameterIterator).getString("in");
-	   	        		} catch(Exception e) {
-	   	            		System.out.println(e.getMessage());
-	   	            	}
-	   	        		parameterHashMap.put("in", in);
-	   	        		
-	   	        		boolean required = false;
-	   	        		try {
-	   	        			required = parametersArray.getJSONObject(parameterIterator).getBoolean("required");
-	   	        		} catch(Exception e) {
-	   	            		System.out.println(e.getMessage());
-	   	            		required = false;
-	   	            	}
-	   	        		parameterHashMap.put("required", String.valueOf(required));
-	   	        		
-	   	        		parameterHashMap.put("ptype", "parameter");
-	   	        		parametersList.add(parameterHashMap);
-	   	        		fullParametersList.add(parameterHashMap);
-	   	
-	   	                String parameterDescription = NLGenT.generateText(apiHashMap, parametersList, 2);
-	   	                System.out.println(parameterDescription);
-	   	                
-	   	             xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").getJSONArray("parameters")
-	   	             	.getJSONObject(parameterIterator).put("description", parameterDescription);;
 	               	} catch(Exception e) {
 	               		System.out.println(e.getMessage());
 	               	}

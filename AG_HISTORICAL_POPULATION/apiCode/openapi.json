@@ -102,28 +102,28 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "path",
           "name" : "TIME",
-          "description" : "TIME",
+          "description" : "The parameter TIME is of type string and an example is 2005. This parameter indicates  the identifier for an instance or single occasion for some event. This parameter is required and  must be in path.\n",
           "required" : true
         } ]
       }
@@ -159,28 +159,28 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "path",
           "name" : "Value",
-          "description" : "Value",
+          "description" : "The parameter Value is of type string and an example is 10157211. This parameter indicates a numerical quantity measured or assigned or computed. This parameter is required and  must be in path.\n",
           "required" : true
         } ]
       }
@@ -216,28 +216,28 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "path",
           "name" : "Flags",
-          "description" : "Flags",
+          "description" : "The parameter Flags is of type string. This parameter indicates emblem usually consisting of a rectangular piece of cloth of distinctive design. This parameter is required and  must be in path.\n",
           "required" : true
         } ]
       }
@@ -273,28 +273,28 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "path",
           "name" : "LOCATION",
-          "description" : "LOCATION",
+          "description" : "The parameter LOCATION is of type string and an example is AUS. This parameter indicates  the identifier for a point or extent in space. This parameter is required and  must be in path.\n",
           "required" : true
         } ]
       }
@@ -322,14 +322,14 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         } ]
       }
     },
@@ -364,28 +364,28 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "path",
           "name" : "FlagCodes",
-          "description" : "FlagCodes",
+          "description" : "The parameter FlagCodes is of type string. This parameter indicates the codes ((computer science) the symbolic arrangement of data or instructions in a computer program or the set of such instructions) of flag (emblem usually consisting of a rectangular piece of cloth of distinctive design). This parameter is required and  must be in path.\n",
           "required" : true
         } ]
       }
@@ -421,98 +421,98 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "LOCATION",
-          "description" : "LOCATION"
+          "description" : "The parameter LOCATION is of type string and an example is AUS. This parameter indicates  the identifier for a point or extent in space. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Country",
-          "description" : "Country"
+          "description" : "The parameter Country is of type string and an example is Australia. This parameter indicates the territory occupied by a nation. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "SEX",
-          "description" : "SEX"
+          "description" : "The parameter SEX is of type string and an example is W. This parameter indicates  the identifier for activities associated with sexual intercourse. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Sex",
-          "description" : "Sex"
+          "description" : "The parameter Sex is of type string and an example is Women. This parameter indicates activities associated with sexual intercourse. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "AGE",
-          "description" : "AGE"
+          "description" : "The parameter AGE is of type string and an example is TOTAL. This parameter indicates  the identifier for how long something has existed. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Age",
-          "description" : "Age"
+          "description" : "The parameter Age is of type string and an example is Total. This parameter indicates how long something has existed. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "TIME",
-          "description" : "TIME"
+          "description" : "The parameter TIME is of type string and an example is 2005. This parameter indicates  the identifier for an instance or single occasion for some event. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Time",
-          "description" : "Time"
+          "description" : "The parameter Time is of type string and an example is 2005. This parameter indicates an instance or single occasion for some event. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Value",
-          "description" : "Value"
+          "description" : "The parameter Value is of type string and an example is 10157211. This parameter indicates a numerical quantity measured or assigned or computed. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "FlagCodes",
-          "description" : "FlagCodes"
+          "description" : "The parameter FlagCodes is of type string. This parameter indicates the codes ((computer science) the symbolic arrangement of data or instructions in a computer program or the set of such instructions) of flag (emblem usually consisting of a rectangular piece of cloth of distinctive design). This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Flags",
-          "description" : "Flags"
+          "description" : "The parameter Flags is of type string. This parameter indicates emblem usually consisting of a rectangular piece of cloth of distinctive design. This parameter is not required and must be in query.\n"
         } ]
       }
     },
@@ -547,28 +547,28 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "path",
           "name" : "AGE",
-          "description" : "AGE",
+          "description" : "The parameter AGE is of type string and an example is TOTAL. This parameter indicates  the identifier for how long something has existed. This parameter is required and  must be in path.\n",
           "required" : true
         } ]
       }
@@ -604,28 +604,28 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "path",
           "name" : "Time",
-          "description" : "Time",
+          "description" : "The parameter Time is of type string and an example is 2005. This parameter indicates an instance or single occasion for some event. This parameter is required and  must be in path.\n",
           "required" : true
         } ]
       }
@@ -661,28 +661,28 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "path",
           "name" : "Sex",
-          "description" : "Sex",
+          "description" : "The parameter Sex is of type string and an example is Women. This parameter indicates activities associated with sexual intercourse. This parameter is required and  must be in path.\n",
           "required" : true
         } ]
       }
@@ -718,28 +718,28 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "path",
           "name" : "Country",
-          "description" : "Country",
+          "description" : "The parameter Country is of type string and an example is Australia. This parameter indicates the territory occupied by a nation. This parameter is required and  must be in path.\n",
           "required" : true
         } ]
       }
@@ -775,28 +775,28 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "path",
           "name" : "Age",
-          "description" : "Age",
+          "description" : "The parameter Age is of type string and an example is Total. This parameter indicates how long something has existed. This parameter is required and  must be in path.\n",
           "required" : true
         } ]
       }
@@ -832,28 +832,28 @@
           },
           "in" : "query",
           "name" : "limit",
-          "description" : "The parameter limit is of type integer. This parameter indicates the greatest possible degree of something. This parameter is not required and must be in query.\n"
+          "description" : "Maximum number of results"
         }, {
           "schema" : {
             "type" : "integer"
           },
           "in" : "query",
           "name" : "offset",
-          "description" : "The parameter offset is of type integer. This parameter indicates cause (printed matter) to transfer or smear onto another surface. This parameter is not required and must be in query.\n"
+          "description" : "Starting index for results"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "visualization",
-          "description" : "The parameter visualization is of type string. This parameter indicates a mental image that is similar to a visual perception. This parameter is not required and must be in query.\n"
+          "description" : "Visualization of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "path",
           "name" : "SEX",
-          "description" : "SEX",
+          "description" : "The parameter SEX is of type string and an example is W. This parameter indicates  the identifier for activities associated with sexual intercourse. This parameter is required and  must be in path.\n",
           "required" : true
         } ]
       }
