@@ -28,7 +28,7 @@ rule Main {
 			description <- 'Obtaining the ' + s.filename
 		),
 		openapi_servers: Openapi!Server (
-			url <- 'http://www.urlprueba.com/v1'
+			url <- 'http://localhost:8080'
 		),
 		openapi_basic_path: Openapi!Path (
 			pattern <- '/' ,
@@ -85,6 +85,7 @@ rule Main {
 		operation_parameter_limit: Openapi!Parameter (
 				in <- 'query',
 				name <- 'limit',
+				example <- '10000',
 				description <- 'Maximum number of results',
 				schema <- operation_parameter_limit_schema
 		),
@@ -94,6 +95,7 @@ rule Main {
 		operation_parameter_offset: Openapi!Parameter (
 				in <- 'query',
 				name <- 'offset',
+				example <- '0',
 				description <- 'Starting index for results',
 				schema <- operation_parameter_offset_schema
 		),
@@ -362,6 +364,7 @@ lazy rule OperationParameterLimit {
 		operation_parameters: Openapi!Parameter (
 				in <- 'query',
 				name <- 'limit',
+				example <- '10000',
 				description <- 'Maximum number of results',
 				schema <- thisModule.ParameterSchemaLimit(cell)
 		)
@@ -374,6 +377,7 @@ lazy rule OperationParameterOffset {
 		operation_parameters: Openapi!Parameter (
 				in <- 'query',
 				name <- 'offset',
+				example <- '0',
 				description <- 'Starting index for results',
 				schema <- thisModule.ParameterSchemaOffset(cell)
 		)

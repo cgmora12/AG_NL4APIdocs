@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
 <openapi:API xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:openapi="platform:/resource/TransformationRules/Openapi.ecore" openapi="3.0.0">
   <info version="1.0.0" title="HISTORICAL_POPULATION" description="Obtaining the HISTORICAL_POPULATION"/>
-  <servers url="http://www.urlprueba.com/v1"/>
+  <servers url="http://localhost:8080"/>
   <paths pattern="/">
     <get summary="GET HISTORICAL_POPULATION" operationId="getHISTORICAL_POPULATION" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">
@@ -66,10 +66,10 @@
   </paths>
   <paths pattern="/visualization">
     <get summary="GET visualization charts" operationId="getvisualization" description="Get visualization charts of the data">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <responses code="200">
@@ -85,10 +85,10 @@
   </paths>
   <paths pattern="/LOCATION/{LOCATION}">
     <get summary="GET LOCATION" operationId="getLOCATION" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">
@@ -117,10 +117,10 @@
   </paths>
   <paths pattern="/Country/{Country}">
     <get summary="GET Country" operationId="getCountry" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">
@@ -149,10 +149,10 @@
   </paths>
   <paths pattern="/SEX/{SEX}">
     <get summary="GET SEX" operationId="getSEX" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">
@@ -181,10 +181,10 @@
   </paths>
   <paths pattern="/Sex/{Sex}">
     <get summary="GET Sex" operationId="getSex" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">
@@ -213,10 +213,10 @@
   </paths>
   <paths pattern="/AGE/{AGE}">
     <get summary="GET AGE" operationId="getAGE" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">
@@ -245,10 +245,10 @@
   </paths>
   <paths pattern="/Age/{Age}">
     <get summary="GET Age" operationId="getAge" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">
@@ -277,10 +277,10 @@
   </paths>
   <paths pattern="/TIME/{TIME}">
     <get summary="GET TIME" operationId="getTIME" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">
@@ -309,10 +309,10 @@
   </paths>
   <paths pattern="/Time/{Time}">
     <get summary="GET Time" operationId="getTime" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">
@@ -341,10 +341,10 @@
   </paths>
   <paths pattern="/Value/{Value}">
     <get summary="GET Value" operationId="getValue" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">
@@ -373,10 +373,10 @@
   </paths>
   <paths pattern="/FlagCodes/{FlagCodes}">
     <get summary="GET FlagCodes" operationId="getFlagCodes" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">
@@ -405,10 +405,10 @@
   </paths>
   <paths pattern="/Flags/{Flags}">
     <get summary="GET Flags" operationId="getFlags" description="Use value 'all' in a parameter for non-empty values">
-      <parameters name="limit" in="query" description="Maximum number of results">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
-      <parameters name="offset" in="query" description="Starting index for results">
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
       <parameters name="visualization" in="query" description="Visualization of the data via charts">

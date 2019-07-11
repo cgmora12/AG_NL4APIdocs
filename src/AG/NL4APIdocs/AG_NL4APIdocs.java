@@ -1268,9 +1268,10 @@ public class AG_NL4APIdocs {
 	   	        		HashMap<String, String> parameterHashMap = new HashMap<>();
 	   	        		parameterHashMap.put("name", paramName);
 	   	        		
+	   	        		String example = "";
+	   	        		
 	   	        		if(!paramName.contentEquals("limit") && !paramName.contentEquals("offset") && !paramName.contentEquals("visualization")) {
-	   	        					   	        		
-		   	        		String example = "";
+
 		   	        		try {
 			   	        		example = examplesHashMap.get(paramName);
 			   	        		if(example != null) {
@@ -1310,14 +1311,22 @@ public class AG_NL4APIdocs {
 		   	        		parameterHashMap.put("ptype", "parameter");
 		   	        		parametersList.add(parameterHashMap);
 		   	        		fullParametersList.add(parameterHashMap);
-		   	
+
+		   	        		if(!path.contentEquals("/")) {
+		   	        			xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").getJSONArray("parameters")
+		   	             			.getJSONObject(parameterIterator).put("example", example);
+		   	        		}
+		   	                
 		   	                String parameterDescription = NLGenT.generateText(apiHashMap, parametersList, 2);
 		   	                System.out.println(parameterDescription);
 		   	                
 		   	                xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").getJSONArray("parameters")
 		   	             		.getJSONObject(parameterIterator).put("description", parameterDescription);
+	   	        		}
+	   	        		else {
+	   	        			int exampleInt = parametersArray.getJSONObject(parameterIterator).getInt("example");
 		   	                xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").getJSONArray("parameters")
-		   	             		.getJSONObject(parameterIterator).put("example", example);
+		   	             		.getJSONObject(parameterIterator).put("example", exampleInt + "");
 	   	        		}
 	               	} catch(Exception e) {
 	               		System.out.println(e.getMessage());
@@ -1332,9 +1341,14 @@ public class AG_NL4APIdocs {
             		methodName = "/";
             	}
         		apiHashMap.put("methodName", methodName);
-                String methodDescription = NLGenT.generateText(apiHashMap, fullPropertiesList, 1);
-                xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").put("description", methodDescription);
-                System.out.println(methodDescription);
+        		
+        		try {
+	                String methodDescription = NLGenT.generateText(apiHashMap, fullPropertiesList, 1);
+	                xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").put("description", methodDescription);
+	                System.out.println(methodDescription);
+        		} catch (Exception e) {
+        			e.printStackTrace();
+        		}
                 fullParametersList.clear();
             	
             	JSONObject jsonobjAux = pathsArray.getJSONObject(i).getJSONObject("get").getJSONObject("responses").getJSONObject("responseCode");
@@ -1387,10 +1401,13 @@ public class AG_NL4APIdocs {
             	
             }
             
-
-            String apiDescription = NLGenT.generateText(apiHashMap, fullPropertiesList, 0);
-            System.out.println(apiDescription);
-            xmlJSONObj.getJSONObject("info").put("description", apiDescription);
+            try {
+	            String apiDescription = NLGenT.generateText(apiHashMap, fullPropertiesList, 0);
+	            System.out.println(apiDescription);
+	            xmlJSONObj.getJSONObject("info").put("description", apiDescription);
+            } catch(Exception e) {
+            	e.printStackTrace();
+            }
             
             jsonString = xmlJSONObj.toString();
             ObjectMapper jsonFormatter = new ObjectMapper();
@@ -1401,6 +1418,7 @@ public class AG_NL4APIdocs {
             xmlSwaggerObj.remove("openapi");
             xmlSwaggerObj.put("swagger", "2.0");
             String urlServer = xmlSwaggerObj.getJSONArray("servers").getJSONObject(0).getString("url");
+            String definitionScheme = ((urlServer.contains("https") ? "https" : "http"));
             urlServer = urlServer.replaceAll("http://", "");
             urlServer = urlServer.replaceAll("https://", "");
             if(StringUtils.countMatches(urlServer,"/") > 0) {
@@ -1489,7 +1507,7 @@ public class AG_NL4APIdocs {
             xmlSwaggerObj.remove("components");
             xmlSwaggerObj.put("definitions", componentsSchemas);
             JSONArray definitionsSchemes = new JSONArray();
-            definitionsSchemes.put("https");
+            definitionsSchemes.put(definitionScheme);
             xmlSwaggerObj.put("schemes", definitionsSchemes);
             
             swaggerString = xmlSwaggerObj.toString();
@@ -1906,23 +1924,22 @@ public class AG_NL4APIdocs {
 		}
 
 		// Edit Default.js of nodejs server
-		/*
+		
 		String defaultCode = "";
-		String servercodeCall = "(req.swagger.params, req.query, res, next);";
+		String servercodeCall = "(req.swagger, res, next);";
         
         BufferedReader brServer2 = null;
 		String lineServer2 = "";
 		try {
-			brServer2 = new BufferedReader(new FileReader
-					(apiCodeFolderName + "/controllers/Default.js"));
+			brServer2 = new BufferedReader(new FileReader(mainFolderName + File.separator + apiCodeFolderName + "/controllers/Default.js"));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         try {
 			while ((lineServer2 = brServer2.readLine()) != null) {
-				if(lineServer2.contains("Default.getdata")) {
-					defaultCode += lineServer2.substring(0, lineServer2.indexOf('(')) + servercodeCall + "\n";
+				if(lineServer2.contains("(req.swagger.params, res, next)")) {
+					defaultCode += lineServer2.replace("(req.swagger.params, res, next)", servercodeCall) + "\n";
 				}
 				else {
 					defaultCode += lineServer2 + "\n";
@@ -1947,7 +1964,7 @@ public class AG_NL4APIdocs {
         
         PrintWriter writer2 = null;
 		try {
-			writer2 = new PrintWriter(apiCodeFolderName + "/controllers/Default.js", "UTF-8");
+			writer2 = new PrintWriter(mainFolderName + File.separator + apiCodeFolderName + "/controllers/Default.js", "UTF-8");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1961,7 +1978,6 @@ public class AG_NL4APIdocs {
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
-		*/
 		
 	}
 

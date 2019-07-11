@@ -26,7 +26,14 @@ exports.getOperation = function(args, res, next) {
     jsonResult.results = [];
 
     // Checking arguments
-    var argsUndefined = true;
+    var argsUndefined = false;
+
+    /*if(args.apiPath === "/"){
+      argsUndefined = true;
+    }*/
+
+    args = args.params;
+
     var filters = false;
     var visualization = false;
 
@@ -42,9 +49,9 @@ exports.getOperation = function(args, res, next) {
           visualization = true;
         }
       }
-      else if(args[Object.keys(args)[i]].value != undefined){
+      /*else if(args[Object.keys(args)[i]].value != undefined){
         argsUndefined = false;
-      }
+      }*/
     } 
 
     var instream = fs.createReadStream(fileName);
@@ -71,7 +78,7 @@ exports.getOperation = function(args, res, next) {
               result = row.data[0];
               //console.log("result row " + JSON.stringify(result));
                 
-              if(argsUndefined){
+              /*if(argsUndefined){
                 if(rowNumber >= offset){
                   jsonResult.results = jsonResult.results.concat(result);
                 }
@@ -82,7 +89,7 @@ exports.getOperation = function(args, res, next) {
                   allDatasets = resultToAllDataset(visualization, result, allDatasets);
                 }
               }
-              else {
+              else {*/
                 var resultValidator = true;
                 for(var j = 0; j < Object.keys(args).length; j++){
                   if(args[Object.keys(args)[j]].value != undefined){
@@ -111,7 +118,7 @@ exports.getOperation = function(args, res, next) {
                     allDatasets = resultToAllDataset(visualization, result, allDatasets);
                   }
                 }
-              }
+              /*}*/
 
             },
             complete: function(){
