@@ -124,7 +124,8 @@
           "in" : "path",
           "name" : "TIME",
           "description" : "The parameter TIME is of type string and an example is 2005. This parameter indicates  the identifier for an instance or single occasion for some event. This parameter is required and  must be in path.\n",
-          "required" : true
+          "required" : true,
+          "example" : "2005"
         } ]
       }
     },
@@ -181,7 +182,8 @@
           "in" : "path",
           "name" : "Value",
           "description" : "The parameter Value is of type string and an example is 10157211. This parameter indicates a numerical quantity measured or assigned or computed. This parameter is required and  must be in path.\n",
-          "required" : true
+          "required" : true,
+          "example" : "10157211"
         } ]
       }
     },
@@ -238,7 +240,8 @@
           "in" : "path",
           "name" : "Flags",
           "description" : "The parameter Flags is of type string. This parameter indicates emblem usually consisting of a rectangular piece of cloth of distinctive design. This parameter is required and  must be in path.\n",
-          "required" : true
+          "required" : true,
+          "example" : ""
         } ]
       }
     },
@@ -295,7 +298,8 @@
           "in" : "path",
           "name" : "LOCATION",
           "description" : "The parameter LOCATION is of type string and an example is AUS. This parameter indicates  the identifier for a point or extent in space. This parameter is required and  must be in path.\n",
-          "required" : true
+          "required" : true,
+          "example" : "AUS"
         } ]
       }
     },
@@ -386,7 +390,8 @@
           "in" : "path",
           "name" : "FlagCodes",
           "description" : "The parameter FlagCodes is of type string. This parameter indicates the codes ((computer science) the symbolic arrangement of data or instructions in a computer program or the set of such instructions) of flag (emblem usually consisting of a rectangular piece of cloth of distinctive design). This parameter is required and  must be in path.\n",
-          "required" : true
+          "required" : true,
+          "example" : ""
         } ]
       }
     },
@@ -442,77 +447,88 @@
           },
           "in" : "query",
           "name" : "LOCATION",
-          "description" : "The parameter LOCATION is of type string and an example is AUS. This parameter indicates  the identifier for a point or extent in space. This parameter is not required and must be in query.\n"
+          "description" : "The parameter LOCATION is of type string and an example is AUS. This parameter indicates  the identifier for a point or extent in space. This parameter is not required and must be in query.\n",
+          "example" : "AUS"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Country",
-          "description" : "The parameter Country is of type string and an example is Australia. This parameter indicates the territory occupied by a nation. This parameter is not required and must be in query.\n"
+          "description" : "The parameter Country is of type string and an example is Australia. This parameter indicates the territory occupied by a nation. This parameter is not required and must be in query.\n",
+          "example" : "Australia"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "SEX",
-          "description" : "The parameter SEX is of type string and an example is W. This parameter indicates  the identifier for activities associated with sexual intercourse. This parameter is not required and must be in query.\n"
+          "description" : "The parameter SEX is of type string and an example is W. This parameter indicates  the identifier for activities associated with sexual intercourse. This parameter is not required and must be in query.\n",
+          "example" : "W"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Sex",
-          "description" : "The parameter Sex is of type string and an example is Women. This parameter indicates activities associated with sexual intercourse. This parameter is not required and must be in query.\n"
+          "description" : "The parameter Sex is of type string and an example is Women. This parameter indicates activities associated with sexual intercourse. This parameter is not required and must be in query.\n",
+          "example" : "Women"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "AGE",
-          "description" : "The parameter AGE is of type string and an example is TOTAL. This parameter indicates  the identifier for how long something has existed. This parameter is not required and must be in query.\n"
+          "description" : "The parameter AGE is of type string and an example is TOTAL. This parameter indicates  the identifier for how long something has existed. This parameter is not required and must be in query.\n",
+          "example" : "TOTAL"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Age",
-          "description" : "The parameter Age is of type string and an example is Total. This parameter indicates how long something has existed. This parameter is not required and must be in query.\n"
+          "description" : "The parameter Age is of type string and an example is Total. This parameter indicates how long something has existed. This parameter is not required and must be in query.\n",
+          "example" : "Total"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "TIME",
-          "description" : "The parameter TIME is of type string and an example is 2005. This parameter indicates  the identifier for an instance or single occasion for some event. This parameter is not required and must be in query.\n"
+          "description" : "The parameter TIME is of type string and an example is 2005. This parameter indicates  the identifier for an instance or single occasion for some event. This parameter is not required and must be in query.\n",
+          "example" : "2005"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Time",
-          "description" : "The parameter Time is of type string and an example is 2005. This parameter indicates an instance or single occasion for some event. This parameter is not required and must be in query.\n"
+          "description" : "The parameter Time is of type string and an example is 2005. This parameter indicates an instance or single occasion for some event. This parameter is not required and must be in query.\n",
+          "example" : "2005"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Value",
-          "description" : "The parameter Value is of type string and an example is 10157211. This parameter indicates a numerical quantity measured or assigned or computed. This parameter is not required and must be in query.\n"
+          "description" : "The parameter Value is of type string and an example is 10157211. This parameter indicates a numerical quantity measured or assigned or computed. This parameter is not required and must be in query.\n",
+          "example" : "10157211"
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "FlagCodes",
-          "description" : "The parameter FlagCodes is of type string. This parameter indicates the codes ((computer science) the symbolic arrangement of data or instructions in a computer program or the set of such instructions) of flag (emblem usually consisting of a rectangular piece of cloth of distinctive design). This parameter is not required and must be in query.\n"
+          "description" : "The parameter FlagCodes is of type string. This parameter indicates the codes ((computer science) the symbolic arrangement of data or instructions in a computer program or the set of such instructions) of flag (emblem usually consisting of a rectangular piece of cloth of distinctive design). This parameter is not required and must be in query.\n",
+          "example" : ""
         }, {
           "schema" : {
             "type" : "string"
           },
           "in" : "query",
           "name" : "Flags",
-          "description" : "The parameter Flags is of type string. This parameter indicates emblem usually consisting of a rectangular piece of cloth of distinctive design. This parameter is not required and must be in query.\n"
+          "description" : "The parameter Flags is of type string. This parameter indicates emblem usually consisting of a rectangular piece of cloth of distinctive design. This parameter is not required and must be in query.\n",
+          "example" : ""
         } ]
       }
     },
@@ -569,7 +585,8 @@
           "in" : "path",
           "name" : "AGE",
           "description" : "The parameter AGE is of type string and an example is TOTAL. This parameter indicates  the identifier for how long something has existed. This parameter is required and  must be in path.\n",
-          "required" : true
+          "required" : true,
+          "example" : "TOTAL"
         } ]
       }
     },
@@ -626,7 +643,8 @@
           "in" : "path",
           "name" : "Time",
           "description" : "The parameter Time is of type string and an example is 2005. This parameter indicates an instance or single occasion for some event. This parameter is required and  must be in path.\n",
-          "required" : true
+          "required" : true,
+          "example" : "2005"
         } ]
       }
     },
@@ -683,7 +701,8 @@
           "in" : "path",
           "name" : "Sex",
           "description" : "The parameter Sex is of type string and an example is Women. This parameter indicates activities associated with sexual intercourse. This parameter is required and  must be in path.\n",
-          "required" : true
+          "required" : true,
+          "example" : "Women"
         } ]
       }
     },
@@ -740,7 +759,8 @@
           "in" : "path",
           "name" : "Country",
           "description" : "The parameter Country is of type string and an example is Australia. This parameter indicates the territory occupied by a nation. This parameter is required and  must be in path.\n",
-          "required" : true
+          "required" : true,
+          "example" : "Australia"
         } ]
       }
     },
@@ -797,7 +817,8 @@
           "in" : "path",
           "name" : "Age",
           "description" : "The parameter Age is of type string and an example is Total. This parameter indicates how long something has existed. This parameter is required and  must be in path.\n",
-          "required" : true
+          "required" : true,
+          "example" : "Total"
         } ]
       }
     },
@@ -854,7 +875,8 @@
           "in" : "path",
           "name" : "SEX",
           "description" : "The parameter SEX is of type string and an example is W. This parameter indicates  the identifier for activities associated with sexual intercourse. This parameter is required and  must be in path.\n",
-          "required" : true
+          "required" : true,
+          "example" : "W"
         } ]
       }
     }

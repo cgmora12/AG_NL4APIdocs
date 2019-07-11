@@ -55,6 +55,7 @@ paths:
           \ This parameter is not required and must be in query.\n"
         required: false
         type: "string"
+        default: "AUS"
       - name: "Country"
         in: "query"
         description: "The parameter Country is of type string and an example is Australia.\
@@ -62,6 +63,7 @@ paths:
           \ is not required and must be in query.\n"
         required: false
         type: "string"
+        default: "Australia"
       - name: "SEX"
         in: "query"
         description: "The parameter SEX is of type string and an example is W. This\
@@ -69,6 +71,7 @@ paths:
           \ intercourse. This parameter is not required and must be in query.\n"
         required: false
         type: "string"
+        default: "W"
       - name: "Sex"
         in: "query"
         description: "The parameter Sex is of type string and an example is Women.\
@@ -76,6 +79,7 @@ paths:
           \ This parameter is not required and must be in query.\n"
         required: false
         type: "string"
+        default: "Women"
       - name: "AGE"
         in: "query"
         description: "The parameter AGE is of type string and an example is TOTAL.\
@@ -83,6 +87,7 @@ paths:
           \ This parameter is not required and must be in query.\n"
         required: false
         type: "string"
+        default: "TOTAL"
       - name: "Age"
         in: "query"
         description: "The parameter Age is of type string and an example is Total.\
@@ -90,6 +95,7 @@ paths:
           \ is not required and must be in query.\n"
         required: false
         type: "string"
+        default: "Total"
       - name: "TIME"
         in: "query"
         description: "The parameter TIME is of type string and an example is 2005.\
@@ -97,6 +103,7 @@ paths:
           \ for some event. This parameter is not required and must be in query.\n"
         required: false
         type: "string"
+        default: "2005"
       - name: "Time"
         in: "query"
         description: "The parameter Time is of type string and an example is 2005.\
@@ -104,6 +111,7 @@ paths:
           \ This parameter is not required and must be in query.\n"
         required: false
         type: "string"
+        default: "2005"
       - name: "Value"
         in: "query"
         description: "The parameter Value is of type string and an example is 10157211.\
@@ -111,6 +119,7 @@ paths:
           \ computed. This parameter is not required and must be in query.\n"
         required: false
         type: "string"
+        default: "10157211"
       - name: "FlagCodes"
         in: "query"
         description: "The parameter FlagCodes is of type string. This parameter indicates\
@@ -172,6 +181,7 @@ paths:
           \ This parameter is required and  must be in path.\n"
         required: true
         type: "string"
+        default: "TOTAL"
       responses:
         200:
           description: "successful operation"
@@ -217,6 +227,7 @@ paths:
           \ is required and  must be in path.\n"
         required: true
         type: "string"
+        default: "Total"
       responses:
         200:
           description: "successful operation"
@@ -263,6 +274,7 @@ paths:
           \ is required and  must be in path.\n"
         required: true
         type: "string"
+        default: "Australia"
       responses:
         200:
           description: "successful operation"
@@ -402,6 +414,7 @@ paths:
           \ This parameter is required and  must be in path.\n"
         required: true
         type: "string"
+        default: "AUS"
       responses:
         200:
           description: "successful operation"
@@ -447,6 +460,7 @@ paths:
           \ intercourse. This parameter is required and  must be in path.\n"
         required: true
         type: "string"
+        default: "W"
       responses:
         200:
           description: "successful operation"
@@ -492,6 +506,7 @@ paths:
           \ This parameter is required and  must be in path.\n"
         required: true
         type: "string"
+        default: "Women"
       responses:
         200:
           description: "successful operation"
@@ -537,6 +552,7 @@ paths:
           \ for some event. This parameter is required and  must be in path.\n"
         required: true
         type: "string"
+        default: "2005"
       responses:
         200:
           description: "successful operation"
@@ -582,6 +598,7 @@ paths:
           \ This parameter is required and  must be in path.\n"
         required: true
         type: "string"
+        default: "2005"
       responses:
         200:
           description: "successful operation"
@@ -628,6 +645,7 @@ paths:
           \ computed. This parameter is required and  must be in path.\n"
         required: true
         type: "string"
+        default: "10157211"
       responses:
         200:
           description: "successful operation"

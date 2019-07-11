@@ -1230,7 +1230,7 @@ public class AG_NL4APIdocs {
 	                System.out.println(parameterDescription);
 	                
 	                xmlJSONObj.getJSONObject("components").getJSONObject("schemas").getJSONObject("mainComponent")
-	                	.getJSONObject("properties").getJSONObject(path).put("description", parameterDescription);;
+	                	.getJSONObject("properties").getJSONObject(path).put("description", parameterDescription);
             	} catch(Exception e) {
             		System.out.println(e.getMessage());
             	}
@@ -1316,6 +1316,8 @@ public class AG_NL4APIdocs {
 		   	                
 		   	                xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").getJSONArray("parameters")
 		   	             		.getJSONObject(parameterIterator).put("description", parameterDescription);
+		   	                xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").getJSONArray("parameters")
+		   	             		.getJSONObject(parameterIterator).put("example", example);
 	   	        		}
 	               	} catch(Exception e) {
 	               		System.out.println(e.getMessage());
@@ -1440,6 +1442,15 @@ public class AG_NL4APIdocs {
             		for(int j = 0; j < parameters.length(); j++) {
             			parameters.getJSONObject(j).put("type", parameters.getJSONObject(j).getJSONObject("schema").getString("type"));
     	            	parameters.getJSONObject(j).remove("schema");
+
+    	            	try {
+	    	            	if(!parameters.getJSONObject(j).getString("example").isEmpty()) {
+		            			parameters.getJSONObject(j).put("default", parameters.getJSONObject(j).getString("example"));
+		    	            	parameters.getJSONObject(j).remove("example");
+	    	            	}
+    	            	} catch (JSONException e) {
+    	        			System.out.println(e.getMessage());
+    	            	}
             		}
 	            	
             	} catch (JSONException e) {
