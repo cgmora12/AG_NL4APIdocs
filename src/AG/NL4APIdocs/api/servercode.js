@@ -26,13 +26,13 @@ exports.getOperation = function(args, res, next) {
     jsonResult.results = [];
 
     // Checking arguments
-    var argsUndefined = false;
+    /*var argsUndefined = false;
 
-    /*if(args.apiPath === "/"){
+    if(args.apiPath === "/"){
       argsUndefined = true;
-    }*/
+    }
 
-    args = args.params;
+    args = args.params;*/
 
     var filters = false;
     var visualization = false;

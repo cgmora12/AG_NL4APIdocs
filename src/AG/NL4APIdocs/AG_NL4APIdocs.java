@@ -145,6 +145,8 @@ public class AG_NL4APIdocs {
 	public static boolean xmi2api = false;
 	public static boolean csv2api = false;
 	public static boolean csv2openapi = false;
+
+	public static boolean babelFolderExisted = false, babelFilesExisted = false;
 	
 	public static void main(String[] args) {
 		
@@ -196,6 +198,7 @@ public class AG_NL4APIdocs {
 
 		mainFolderName = "AG_" + cleanString(fileName);
 
+		configBabel();
 		convertCSVIntoXMI();
 		model2modelTransformation();
 	    convertXMIintoJSON();
@@ -709,6 +712,107 @@ public class AG_NL4APIdocs {
         		.replaceAll("\\?", "").replaceAll("\\+", "plus").replaceAll("\\-", "minus").replaceAll("\\(", "_").replaceAll("\\)", "_")
         		.replaceAll("\\[", "_").replaceAll("\\]", "_").replaceAll("\\{", "_").replaceAll("\\}", "_"))
         		.replaceAll("\\P{Print}", "").trim();
+	}
+	
+	private static void configBabel() {
+		File folder = new File("config");
+		if (folder.isDirectory()) {
+		   babelFolderExisted = true;
+		} else {
+			File dir = new File("config");
+			dir.mkdir();
+		}
+		
+		try {
+			InputStream src = AG_NL4APIdocs.class.getResourceAsStream("/babelfy.properties");
+			File f = new File("config/babelfy.properties");
+			if(f.exists()) {
+				babelFilesExisted = true;
+			} else {
+				Files.copy(src, Paths.get("config/babelfy.properties"));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			InputStream src = AG_NL4APIdocs.class.getResourceAsStream("/babelfy.var.properties");
+			File f = new File("config/babelfy.var.properties");
+			if(f.exists()) {
+				babelFilesExisted = true;
+			} else {
+			    Files.copy(src, Paths.get("config/babelfy.var.properties"));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			InputStream src = AG_NL4APIdocs.class.getResourceAsStream("/babelnet.properties");
+			File f = new File("config/babelnet.properties");
+			if(f.exists()) {
+				babelFilesExisted = true;
+			} else {
+			    Files.copy(src, Paths.get("config/babelnet.properties"));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			InputStream src = AG_NL4APIdocs.class.getResourceAsStream("/babelnet.var.properties");
+			File f = new File("config/babelnet.var.properties");
+			if(f.exists()) {
+				babelFilesExisted = true;
+			} else {
+			    Files.copy(src, Paths.get("config/babelnet.var.properties"));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			InputStream src = AG_NL4APIdocs.class.getResourceAsStream("/jlt.properties");
+			File f = new File("config/jlt.properties");
+			if(f.exists()) {
+				babelFilesExisted = true;
+			} else {
+			    Files.copy(src, Paths.get("config/jlt.properties"));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			InputStream src = AG_NL4APIdocs.class.getResourceAsStream("/jlt.var.properties");
+			File f = new File("config/jlt.var.properties");
+			if(f.exists()) {
+				babelFilesExisted = true;
+			} else {
+			    Files.copy(src, Paths.get("config/jlt.var.properties"));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			InputStream src = AG_NL4APIdocs.class.getResourceAsStream("/ser.properties");
+			File f = new File("config/ser.properties");
+			if(f.exists()) {
+				babelFilesExisted = true;
+			} else {
+			    Files.copy(src, Paths.get("config/ser.properties"));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private static void convertCSVIntoXMI() {
@@ -1709,8 +1813,36 @@ public class AG_NL4APIdocs {
         }
 		
 	}*/
+	
+	private static void deleteDir(File file) {
+		File[] contents = file.listFiles();
+	    if (contents != null) {
+	        for (File f : contents) {
+	            if (! Files.isSymbolicLink(f.toPath())) {
+	                deleteDir(f);
+	            }
+	        }
+	    }
+
+		if(file.isDirectory() && file.getName().contentEquals("config") && !babelFolderExisted) {
+			file.delete();
+		} else if(file.isFile() && !babelFilesExisted && (
+				file.getName().contentEquals("babelfy.properties") || file.getName().contentEquals("babelfy.var.properties") || 
+				file.getName().contentEquals("babelnet.properties") || file.getName().contentEquals("babelnet.var.properties") || 
+				file.getName().contentEquals("jlt.properties") || file.getName().contentEquals("jlt.var.properties") || 
+				file.getName().contentEquals("ser.properties"))){
+			file.delete();
+		}
+	}
 
 	private static void generateServer() {
+		
+		try {
+			File file = new File("config");
+			deleteDir(file);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 
 		// TODO: Swagger 2.0 to OpenAPI
 		if(openapi2api || xmi2api || csv2api) {
@@ -1925,7 +2057,7 @@ public class AG_NL4APIdocs {
 
 		// Edit Default.js of nodejs server
 		
-		String defaultCode = "";
+		/*String defaultCode = "";
 		String servercodeCall = "(req.swagger, res, next);";
         
         BufferedReader brServer2 = null;
@@ -1977,7 +2109,7 @@ public class AG_NL4APIdocs {
 			writer2.close();
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
 	}
 

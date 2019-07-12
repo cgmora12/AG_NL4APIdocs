@@ -6,6 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" output="config" path="config"/>
 	<classpathentry exported="true" kind="lib" path="res/libs/swagger-codegen-cli-2.2.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="res/libs/atl-emftvm-fatjar.jar"/>
 	<classpathentry exported="true" kind="lib" path="res/libs/java-json.jar"/>
