@@ -45,9 +45,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "LOCATION"
@@ -94,25 +94,25 @@ paths:
         type: "string"
       - name: "TIME"
         in: "query"
-        description: "The parameter TIME is of type string and an example is 2005.\
+        description: "The parameter TIME is of type integer and an example is 2005.\
           \ This parameter indicates  the identifier for an instance or single occasion\
           \ for some event. This parameter is not required and must be in query.\n"
         required: false
-        type: "string"
+        type: "integer"
       - name: "Time"
         in: "query"
-        description: "The parameter Time is of type string and an example is 2005.\
+        description: "The parameter Time is of type integer and an example is 2005.\
           \ This parameter indicates an instance or single occasion for some event.\
           \ This parameter is not required and must be in query.\n"
         required: false
-        type: "string"
+        type: "integer"
       - name: "Value"
         in: "query"
-        description: "The parameter Value is of type string and an example is 10157211.\
+        description: "The parameter Value is of type integer and an example is 10157211.\
           \ This parameter indicates a numerical quantity measured or assigned or\
           \ computed. This parameter is not required and must be in query.\n"
         required: false
-        type: "string"
+        type: "integer"
       - name: "FlagCodes"
         in: "query"
         description: "The parameter FlagCodes is of type string. This parameter indicates\
@@ -164,9 +164,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "AGE"
@@ -212,9 +212,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "Age"
@@ -261,9 +261,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "Country"
@@ -310,9 +310,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "FlagCodes"
@@ -359,9 +359,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "Flags"
@@ -407,9 +407,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "LOCATION"
@@ -455,9 +455,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "SEX"
@@ -503,9 +503,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "Sex"
@@ -551,9 +551,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "TIME"
@@ -599,9 +599,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "Time"
@@ -648,9 +648,9 @@ paths:
         required: false
         type: "integer"
         default: 0
-      - name: "visualization"
+      - name: "visualisation"
         in: "query"
-        description: "Visualization of the data via charts"
+        description: "Visualisation of the data via charts"
         required: false
         type: "string"
       - name: "Value"
@@ -667,20 +667,20 @@ paths:
           schema:
             type: "string"
       x-swagger-router-controller: "Default"
-  /visualization:
+  /visualisation:
     get:
-      summary: "GET visualization charts"
-      description: "Find HISTORICAL_POPULATION by visualization.\nThis API method\
-        \ finds HISTORICAL_POPULATION data by visualization. You must filter the results\
-        \ by a specific visualization. These results will contain the following fields:\
+      summary: "GET visualisation charts"
+      description: "Find HISTORICAL_POPULATION by visualisation.\nThis API method\
+        \ finds HISTORICAL_POPULATION data by visualisation. You must filter the results\
+        \ by a specific visualisation. These results will contain the following fields:\
         \ LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags.\
-        \ An example of using this method is /visualization/ or /?visualization= whose\
+        \ An example of using this method is /visualisation/ or /?visualisation= whose\
         \ result would include the following record:\n{\n  \"LOCATION\" : \"AUS\"\
         , \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\"\
         , \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\"\
         , \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\"\
         \ : \"\", \n  \"Flags\" : \"\"\n}"
-      operationId: "getvisualization"
+      operationId: "getvisualisation"
       produces:
       - "text/html"
       parameters:

@@ -129,15 +129,15 @@ public class AG_NL4APIdocs {
 	public static String tempFolderName = "generated";
 	public static String mainFolderName = "AG_data";
 	public static String fileSeparatorForResources = "/";
-	public static String visualizationMainFolderName = "Visualizacion";
-	public static String visualizationChartJS = "visualization.html";
-	public static String visualizationZipFileName = visualizationMainFolderName + ".zip";
-	public static String visualizationProjectName = "ChartsDemo-macOS";
-	public static String visualizationFolderName = "Demos";
-	public static String visualizationSwiftFileName = "BarDemoViewController.swift";
-	public static String visualizationSwiftFileName2 = "LineDemoViewController.swift";
-	public static String visualizationSwiftFileName3 = "PieDemoViewController.swift";
-	public static String visualizationSwiftFileName3Tab = "CustomPieTab.swift";
+	public static String visualisationMainFolderName = "Visualisacion";
+	public static String visualisationChartJS = "visualisation.html";
+	public static String visualisationZipFileName = visualisationMainFolderName + ".zip";
+	public static String visualisationProjectName = "ChartsDemo-macOS";
+	public static String visualisationFolderName = "Demos";
+	public static String visualisationSwiftFileName = "BarDemoViewController.swift";
+	public static String visualisationSwiftFileName2 = "LineDemoViewController.swift";
+	public static String visualisationSwiftFileName3 = "PieDemoViewController.swift";
+	public static String visualisationSwiftFileName3Tab = "CustomPieTab.swift";
 
 	public static boolean m2mTransformation = false;
 	public static boolean openapi2api = false;
@@ -205,7 +205,7 @@ public class AG_NL4APIdocs {
 	    generateServer();
         addServerDependencies();
         generateApiCode();
-        generateVisualization();
+        generateVisualisation();
         runApi();
         System.out.println("Automatic API Generation finished!");
 		
@@ -235,7 +235,7 @@ public class AG_NL4APIdocs {
         addServerDependencies();
         generateApiCode();
         runApi();
-        generateVisualization();
+        generateVisualisation();
         System.out.println("Automatic API Generation finished!");
 	}*/
 	
@@ -278,7 +278,7 @@ public class AG_NL4APIdocs {
 	    generateServer();
         addServerDependencies();
         generateApiCode();
-        generateVisualization();
+        generateVisualisation();
         runApi();
         System.out.println("Automatic API Generation finished!");
 	}
@@ -332,7 +332,7 @@ public class AG_NL4APIdocs {
 	    generateServer();
         addServerDependencies();
         generateApiCode();
-        generateVisualization();
+        generateVisualisation();
         runApi();
         System.out.println("Automatic API Generation finished!");
 	}
@@ -1374,7 +1374,7 @@ public class AG_NL4APIdocs {
 	   	        		
 	   	        		String example = "";
 	   	        		
-	   	        		if(!paramName.contentEquals("limit") && !paramName.contentEquals("offset") && !paramName.contentEquals("visualization")) {
+	   	        		if(!paramName.contentEquals("limit") && !paramName.contentEquals("offset") && !paramName.contentEquals("visualisation")) {
 
 		   	        		try {
 			   	        		example = examplesHashMap.get(paramName);
@@ -2013,8 +2013,8 @@ public class AG_NL4APIdocs {
 				}
 			}
 			for(String lineFunctionName: lineFunctionNames) {
-				if(lineFunctionName.contains("getvisualization")) {
-					servercode += lineFunctionName + "\t" + "var obj = new Object();obj.value = \"visualization\";args.visualization = obj;\n"
+				if(lineFunctionName.contains("getvisualisation")) {
+					servercode += lineFunctionName + "\t" + "var obj = new Object();obj.value = \"visualisation\";args.visualisation = obj;\n"
 							+ "\t" + "exports.getOperation(args, res, next); \n}\n";
 				} else {
 					servercode += lineFunctionName + "\t" + "exports.getOperation(args, res, next); \n}\n";
@@ -2113,7 +2113,7 @@ public class AG_NL4APIdocs {
 		
 	}
 
-	private static void generateVisualization() {
+	private static void generateVisualisation() {
 	
 		
 		// ChartJS
@@ -2142,26 +2142,26 @@ public class AG_NL4APIdocs {
 			e1.printStackTrace();
 		}
 		
-		String visualizationCode = "";
-		BufferedReader brVisualization = null;
-	    String lineVisualization = "";
+		String visualisationCode = "";
+		BufferedReader brVisualisation = null;
+	    String lineVisualisation = "";
 		try {
-			brVisualization = new BufferedReader(new InputStreamReader
+			brVisualisation = new BufferedReader(new InputStreamReader
 					(AG_NL4APIdocs.class.getResourceAsStream(fileSeparatorForResources + resFolderName0 + fileSeparatorForResources + resFolderName1
-		            		+ fileSeparatorForResources + "visualization" 
-		            		+ fileSeparatorForResources + visualizationChartJS)));
+		            		+ fileSeparatorForResources + "visualisation" 
+		            		+ fileSeparatorForResources + visualisationChartJS)));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    try {
-			while ((lineVisualization = brVisualization.readLine()) != null) {
+			while ((lineVisualisation = brVisualisation.readLine()) != null) {
 				//TODO: arreglar pie chart (con botones como en Charts de iOS)
-				if(lineVisualization.contains("datasetsLineChart") || lineVisualization.contains("datasetsBarChart")) {
+				if(lineVisualisation.contains("datasetsLineChart") || lineVisualisation.contains("datasetsBarChart")) {
 					
 					String datasets = "";
 					
-					if(lineVisualization.contains("datasetsLineChart")) {
+					if(lineVisualisation.contains("datasetsLineChart")) {
 						for(int i = 0; i < columnNames.size(); i ++) {
 							if (i > 0) {
 								datasets += ",";
@@ -2179,9 +2179,9 @@ public class AG_NL4APIdocs {
 							datasets += dataset;
 						}
 						
-						visualizationCode += lineVisualization.replace("datasetsLineChart", datasets) + "\n";
+						visualisationCode += lineVisualisation.replace("datasetsLineChart", datasets) + "\n";
 					}
-					else if(lineVisualization.contains("datasetsBarChart")) {
+					else if(lineVisualisation.contains("datasetsBarChart")) {
 						for(int i = 0; i < columnNames.size(); i ++) {
 							if (i > 0) {
 								datasets += ",";
@@ -2198,10 +2198,10 @@ public class AG_NL4APIdocs {
 							datasets += dataset;
 						}
 						
-						visualizationCode += lineVisualization.replace("datasetsBarChart", datasets) + "\n";
+						visualisationCode += lineVisualisation.replace("datasetsBarChart", datasets) + "\n";
 					}
 				} 
-				else if(lineVisualization.contains("configPie0")) {
+				else if(lineVisualisation.contains("configPie0")) {
 					String pies = "";
 					for(int i = 0; i < allColumnNames.size(); i ++) {
 						String pie = "var configPie" + i + " = {\n" + 
@@ -2241,13 +2241,13 @@ public class AG_NL4APIdocs {
 								"		});\n\n";
 						pies += pie;
 					}
-					visualizationCode += lineVisualization.replace("var configPie0;", pies) + "\n";
+					visualisationCode += lineVisualisation.replace("var configPie0;", pies) + "\n";
 				}
 				else {
-					visualizationCode += lineVisualization + "\n";
+					visualisationCode += lineVisualisation + "\n";
 				}
 			}
-			System.out.println("Visualization.html generated");
+			System.out.println("Visualisation.html generated");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -2256,7 +2256,7 @@ public class AG_NL4APIdocs {
 			e.printStackTrace();
 		}
 	    try {
-	    	brVisualization.close();
+	    	brVisualisation.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -2268,7 +2268,7 @@ public class AG_NL4APIdocs {
 	    PrintWriter writer = null;
 		try {
 			writer = new PrintWriter(mainFolderName + File.separator + apiCodeFolderName + File.separator + 
-					"controllers" + File.separator + visualizationChartJS, "UTF-8");
+					"controllers" + File.separator + visualisationChartJS, "UTF-8");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -2277,30 +2277,30 @@ public class AG_NL4APIdocs {
 			e.printStackTrace();
 		}
 		try {
-			writer.println(visualizationCode);
+			writer.println(visualisationCode);
 			writer.close();
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Visualization.html saved");
+		System.out.println("Visualisation.html saved");
 		
 		/*try {
 	        Files.copy(AG.class.getResourceAsStream(fileSeparatorForResources + resFolderName 
-	        		+ fileSeparatorForResources + "visualization" 
-	        		+ fileSeparatorForResources + visualizationMainFolderName + ".zip"), 
-	        		new File(mainFolderName + File.separator + visualizationZipFileName).toPath(), StandardCopyOption.REPLACE_EXISTING);
+	        		+ fileSeparatorForResources + "visualisation" 
+	        		+ fileSeparatorForResources + visualisationMainFolderName + ".zip"), 
+	        		new File(mainFolderName + File.separator + visualisationZipFileName).toPath(), StandardCopyOption.REPLACE_EXISTING);
 	    } catch (IOException e) {
 			System.out.println(e.getMessage());
 	    }
 		
 		try {
-			FileUtils.deleteDirectory(new File(mainFolderName + File.separator + visualizationMainFolderName));
+			FileUtils.deleteDirectory(new File(mainFolderName + File.separator + visualisationMainFolderName));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		
 		try {
-			ZipFile zipFile = new ZipFile(mainFolderName + File.separator + visualizationZipFileName);
+			ZipFile zipFile = new ZipFile(mainFolderName + File.separator + visualisationZipFileName);
 			Enumeration<?> enu = zipFile.entries();
 			while (enu.hasMoreElements()) {
 				ZipEntry zipEntry = (ZipEntry) enu.nextElement();
@@ -2334,7 +2334,7 @@ public class AG_NL4APIdocs {
 			e.printStackTrace();
 		}
 		
-		File file = new File(mainFolderName + File.separator + visualizationZipFileName);
+		File file = new File(mainFolderName + File.separator + visualisationZipFileName);
 		if (file.exists()) {
 		    file.delete();
 		} else {
@@ -2364,9 +2364,9 @@ public class AG_NL4APIdocs {
 		}
 		
 		//Create graphs in swift
-		String swiftFilePath = mainFolderName + File.separator + visualizationMainFolderName + File.separator + visualizationProjectName 
-				+ File.separator + visualizationProjectName + File.separator + visualizationFolderName 
-				+ File.separator + visualizationSwiftFileName;
+		String swiftFilePath = mainFolderName + File.separator + visualisationMainFolderName + File.separator + visualisationProjectName 
+				+ File.separator + visualisationProjectName + File.separator + visualisationFolderName 
+				+ File.separator + visualisationSwiftFileName;
 		try(BufferedReader br = new BufferedReader(new FileReader(swiftFilePath))) {
 		    StringBuilder sb = new StringBuilder();
 		    String line = br.readLine();
@@ -2391,7 +2391,7 @@ public class AG_NL4APIdocs {
 		    
 		    File swiftFile = new File(swiftFilePath);
 		    FileUtils.writeStringToFile(swiftFile, content);
-		    System.err.println("Visualization created");
+		    System.err.println("Visualisation created");
 		    //System.out.println(content);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -2400,9 +2400,9 @@ public class AG_NL4APIdocs {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String swiftFilePath2 = mainFolderName + File.separator + visualizationMainFolderName + File.separator + visualizationProjectName 
-				+ File.separator + visualizationProjectName + File.separator + visualizationFolderName 
-				+ File.separator + visualizationSwiftFileName2;
+		String swiftFilePath2 = mainFolderName + File.separator + visualisationMainFolderName + File.separator + visualisationProjectName 
+				+ File.separator + visualisationProjectName + File.separator + visualisationFolderName 
+				+ File.separator + visualisationSwiftFileName2;
 		try(BufferedReader br = new BufferedReader(new FileReader(swiftFilePath2))) {
 		    StringBuilder sb = new StringBuilder();
 		    String line = br.readLine();
@@ -2427,7 +2427,7 @@ public class AG_NL4APIdocs {
 		    
 		    File swiftFile = new File(swiftFilePath2);
 		    FileUtils.writeStringToFile(swiftFile, content);
-		    System.err.println("Visualization created");
+		    System.err.println("Visualisation created");
 		    //System.out.println(content);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -2504,9 +2504,9 @@ public class AG_NL4APIdocs {
 		
 		// TODO: create pie chart for each classification column
 		if(classifiedColumnNames.size() > 0) {
-			String swiftFilePath3 = mainFolderName + File.separator + visualizationMainFolderName + File.separator + visualizationProjectName 
-					+ File.separator + visualizationProjectName + File.separator + visualizationFolderName 
-					+ File.separator + visualizationSwiftFileName3Tab;
+			String swiftFilePath3 = mainFolderName + File.separator + visualisationMainFolderName + File.separator + visualisationProjectName 
+					+ File.separator + visualisationProjectName + File.separator + visualisationFolderName 
+					+ File.separator + visualisationSwiftFileName3Tab;
 			try(BufferedReader br3= new BufferedReader(new FileReader(swiftFilePath3))) {
 			    StringBuilder sb = new StringBuilder();
 			    line = br3.readLine();
@@ -2532,7 +2532,7 @@ public class AG_NL4APIdocs {
 			    
 			    File swiftFile = new File(swiftFilePath3);
 			    FileUtils.writeStringToFile(swiftFile, content);
-			    System.err.println("Visualization created");
+			    System.err.println("Visualisation created");
 			    //System.out.println(content);
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -2543,36 +2543,36 @@ public class AG_NL4APIdocs {
 			}
 		}
 	
-		// Build and open visualization generated
-		System.out.println("Waiting for building and opening visualization...");
+		// Build and open visualisation generated
+		System.out.println("Waiting for building and opening visualisation...");
 		try {
 	        Files.copy(AG.class.getResourceAsStream(fileSeparatorForResources + resFolderName 
-	        		+ fileSeparatorForResources + "visualization" 
-	        		+ fileSeparatorForResources + "buildVisualization"), 
-	        		new File(mainFolderName + File.separator + "buildVisualization").toPath(), StandardCopyOption.REPLACE_EXISTING);
+	        		+ fileSeparatorForResources + "visualisation" 
+	        		+ fileSeparatorForResources + "buildVisualisation"), 
+	        		new File(mainFolderName + File.separator + "buildVisualisation").toPath(), StandardCopyOption.REPLACE_EXISTING);
 	    } catch (IOException e) {
 			System.out.println(e.getMessage());
 	    }
 	
 		try {
 	        Files.copy(AG.class.getResourceAsStream(fileSeparatorForResources + resFolderName 
-	        		+ fileSeparatorForResources + "visualization" 
-	        		+ fileSeparatorForResources + "openVisualization"), 
-	        		new File(mainFolderName + File.separator + "openVisualization").toPath(), StandardCopyOption.REPLACE_EXISTING);
+	        		+ fileSeparatorForResources + "visualisation" 
+	        		+ fileSeparatorForResources + "openVisualisation"), 
+	        		new File(mainFolderName + File.separator + "openVisualisation").toPath(), StandardCopyOption.REPLACE_EXISTING);
 	    } catch (IOException e) {
 			System.out.println(e.getMessage());
 	    }
 		
-		File execFile1 = new File(mainFolderName + File.separator + "buildVisualization");
+		File execFile1 = new File(mainFolderName + File.separator + "buildVisualisation");
 		execFile1.setExecutable(true);
-		File execFile2 = new File(mainFolderName + File.separator + "openVisualization");
+		File execFile2 = new File(mainFolderName + File.separator + "openVisualisation");
 		execFile2.setExecutable(true);
 	    
 	    try {
 	    	if(System.getProperty("os.name", "generic").toLowerCase(Locale.ENGLISH).indexOf("win") >= 0) {
-	    		System.out.println("The build visualization process is only for MacOS");
+	    		System.out.println("The build visualisation process is only for MacOS");
 	    	} else {
-	    		Process p = new ProcessBuilder("./" + mainFolderName + File.separator + "buildVisualization", "").start();
+	    		Process p = new ProcessBuilder("./" + mainFolderName + File.separator + "buildVisualisation", "").start();
 		        BufferedReader reader = 
 		                new BufferedReader(new InputStreamReader(p.getInputStream()));
 				StringBuilder builder = new StringBuilder();
@@ -2595,9 +2595,9 @@ public class AG_NL4APIdocs {
 	
 	    try {
 	    	if(System.getProperty("os.name", "generic").toLowerCase(Locale.ENGLISH).indexOf("win") >= 0) {
-	    		System.out.println("The visualization is built only for MacOS");
+	    		System.out.println("The visualisation is built only for MacOS");
 	    	} else {
-		        Process p = new ProcessBuilder("./" + mainFolderName + File.separator +  "openVisualization", "").start();
+		        Process p = new ProcessBuilder("./" + mainFolderName + File.separator +  "openVisualisation", "").start();
 	    	}
 	    } catch (IOException e) {
 	        // TODO Auto-generated catch block
@@ -2737,7 +2737,7 @@ public class AG_NL4APIdocs {
             }
 
         }else{
-            System.out.println("Unrecognized charset.");
+            System.out.println("Unrecognised charset.");
         }
     }
 }*/

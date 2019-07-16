@@ -10,7 +10,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="LOCATION" in="query" description="LOCATION">
@@ -32,13 +32,13 @@
         <schema type="string"/>
       </parameters>
       <parameters name="TIME" in="query" description="TIME">
-        <schema type="string"/>
+        <schema type="integer"/>
       </parameters>
       <parameters name="Time" in="query" description="Time">
-        <schema type="string"/>
+        <schema type="integer"/>
       </parameters>
       <parameters name="Value" in="query" description="Value">
-        <schema type="string"/>
+        <schema type="integer"/>
       </parameters>
       <parameters name="FlagCodes" in="query" description="FlagCodes">
         <schema type="string"/>
@@ -64,8 +64,8 @@
       </responses>
     </get>
   </paths>
-  <paths pattern="/visualization">
-    <get summary="GET visualization charts" operationId="getvisualization" description="Get visualization charts of the data">
+  <paths pattern="/visualisation">
+    <get summary="GET visualisation charts" operationId="getvisualisation" description="Get visualisation charts of the data">
       <parameters name="limit" in="query" description="Maximum number of results" example="10000">
         <schema type="integer"/>
       </parameters>
@@ -91,7 +91,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="LOCATION" in="path" description="LOCATION" required="true">
@@ -123,7 +123,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="Country" in="path" description="Country" required="true">
@@ -155,7 +155,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="SEX" in="path" description="SEX" required="true">
@@ -187,7 +187,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="Sex" in="path" description="Sex" required="true">
@@ -219,7 +219,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="AGE" in="path" description="AGE" required="true">
@@ -251,7 +251,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="Age" in="path" description="Age" required="true">
@@ -283,7 +283,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="TIME" in="path" description="TIME" required="true">
@@ -315,7 +315,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="Time" in="path" description="Time" required="true">
@@ -347,7 +347,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="Value" in="path" description="Value" required="true">
@@ -379,7 +379,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="FlagCodes" in="path" description="FlagCodes" required="true">
@@ -411,7 +411,7 @@
       <parameters name="offset" in="query" description="Starting index for results" example="0">
         <schema type="integer"/>
       </parameters>
-      <parameters name="visualization" in="query" description="Visualization of the data via charts">
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
         <schema type="string"/>
       </parameters>
       <parameters name="Flags" in="path" description="Flags" required="true">

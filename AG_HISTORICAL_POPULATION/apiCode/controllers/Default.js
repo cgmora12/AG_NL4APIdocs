@@ -54,6 +54,6 @@ module.exports.getValue = function getValue (req, res, next) {
   Default.getValue(req.swagger.params, res, next);
 };
 
-module.exports.getvisualization = function getvisualization (req, res, next) {
-  Default.getvisualization(req.swagger.params, res, next);
+module.exports.getvisualisation = function getvisualisation (req, res, next) {
+  Default.getvisualisation(req.swagger.params, res, next);
 };

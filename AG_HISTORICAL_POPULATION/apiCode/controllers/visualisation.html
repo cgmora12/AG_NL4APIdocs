@@ -1,0 +1,597 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Data Visualisation Charts</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+	<style>
+	canvas{
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	</style>
+</head>
+
+<body>
+	<div style="width:80%;margin: 0 auto;">
+		<canvas id="canvasLine"></canvas>
+	</div>
+	<br>
+	<br>
+	<div style="width:80%;margin: 0 auto;">
+		<canvas id="canvasBar"></canvas>
+	</div>
+	<br>
+	<br>
+	<div id="canvas-holder" style="width:50%;margin: 0 auto;">
+		<canvas id="chart-area"></canvas>
+	</div>
+	<label id="pieChartLabel"></label>
+	<br>
+	<br>
+	<script>
+		window.chartColors = {
+			red: 'rgb(255, 99, 132)',
+			orange: 'rgb(255, 159, 64)',
+			yellow: 'rgb(255, 205, 86)',
+			green: 'rgb(75, 192, 192)',
+			blue: 'rgb(54, 162, 235)',
+			purple: 'rgb(153, 102, 255)',
+			grey: 'rgb(201, 203, 207)'
+		};
+		var colorsArray = [
+			window.chartColors.red,
+			window.chartColors.orange,
+			window.chartColors.yellow,
+			window.chartColors.green,
+			window.chartColors.blue,
+		];
+		var color = Chart.helpers.color;
+		var configLine = {
+			type: 'line',
+			data: {
+				labels: [
+					labelsLineChart
+				],
+				datasets: [
+					{
+	label: 'TIME',
+	backgroundColor: color(colorsArray[0% colorsArray.length]).alpha(0.5).rgbString(),
+	borderColor: colorsArray[0% colorsArray.length],
+	borderWidth: 3,
+	fill: false,
+	data: [
+		dataLineChart	]
+},{
+	label: 'Time',
+	backgroundColor: color(colorsArray[1% colorsArray.length]).alpha(0.5).rgbString(),
+	borderColor: colorsArray[1% colorsArray.length],
+	borderWidth: 3,
+	fill: false,
+	data: [
+		dataLineChart	]
+},{
+	label: 'Value',
+	backgroundColor: color(colorsArray[2% colorsArray.length]).alpha(0.5).rgbString(),
+	borderColor: colorsArray[2% colorsArray.length],
+	borderWidth: 3,
+	fill: false,
+	data: [
+		dataLineChart	]
+}
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Line Chart'
+				},
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Id'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Value'
+						}
+					}]
+				}
+			}
+		};
+
+		
+		var barChartData = {
+			labels: [
+				labelsBarChart
+			],
+			datasets: [
+				{
+	label: 'TIME',
+	backgroundColor: color(colorsArray[0% colorsArray.length]).alpha(0.5).rgbString(),
+	borderColor: colorsArray[0% colorsArray.length],
+	borderWidth: 3,
+	data: [
+		dataBarChart	]
+},{
+	label: 'Time',
+	backgroundColor: color(colorsArray[1% colorsArray.length]).alpha(0.5).rgbString(),
+	borderColor: colorsArray[1% colorsArray.length],
+	borderWidth: 3,
+	data: [
+		dataBarChart	]
+},{
+	label: 'Value',
+	backgroundColor: color(colorsArray[2% colorsArray.length]).alpha(0.5).rgbString(),
+	borderColor: colorsArray[2% colorsArray.length],
+	borderWidth: 3,
+	data: [
+		dataBarChart	]
+}
+			]
+
+		};
+
+		var configBar = {
+			type: 'bar',
+			data: barChartData,
+			options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+				},
+				title: {
+					display: true,
+					text: 'Chart.js Bar Chart'
+				}
+			}
+		};
+
+		var configPie0 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [ 						dataPieChart
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'LOCATION'
+				}				],
+				labels: [
+					labelsPieChart
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Pie Chart (LOCATION)'
+				}			}
+		};
+
+</script>
+
+<button id="pieChartButton0">PieChart LOCATION</button>
+
+<script>
+
+		document.getElementById('pieChartButton0').addEventListener('click', function() {
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie0);
+		});
+
+var configPie1 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [ 						dataPieChart
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'Country'
+				}				],
+				labels: [
+					labelsPieChart
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Pie Chart (Country)'
+				}			}
+		};
+
+</script>
+
+<button id="pieChartButton1">PieChart Country</button>
+
+<script>
+
+		document.getElementById('pieChartButton1').addEventListener('click', function() {
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie1);
+		});
+
+var configPie2 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [ 						dataPieChart
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'SEX'
+				}				],
+				labels: [
+					labelsPieChart
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Pie Chart (SEX)'
+				}			}
+		};
+
+</script>
+
+<button id="pieChartButton2">PieChart SEX</button>
+
+<script>
+
+		document.getElementById('pieChartButton2').addEventListener('click', function() {
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie2);
+		});
+
+var configPie3 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [ 						dataPieChart
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'Sex'
+				}				],
+				labels: [
+					labelsPieChart
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Pie Chart (Sex)'
+				}			}
+		};
+
+</script>
+
+<button id="pieChartButton3">PieChart Sex</button>
+
+<script>
+
+		document.getElementById('pieChartButton3').addEventListener('click', function() {
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie3);
+		});
+
+var configPie4 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [ 						dataPieChart
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'AGE'
+				}				],
+				labels: [
+					labelsPieChart
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Pie Chart (AGE)'
+				}			}
+		};
+
+</script>
+
+<button id="pieChartButton4">PieChart AGE</button>
+
+<script>
+
+		document.getElementById('pieChartButton4').addEventListener('click', function() {
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie4);
+		});
+
+var configPie5 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [ 						dataPieChart
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'Age'
+				}				],
+				labels: [
+					labelsPieChart
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Pie Chart (Age)'
+				}			}
+		};
+
+</script>
+
+<button id="pieChartButton5">PieChart Age</button>
+
+<script>
+
+		document.getElementById('pieChartButton5').addEventListener('click', function() {
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie5);
+		});
+
+var configPie6 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [ 						dataPieChart
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'TIME'
+				}				],
+				labels: [
+					labelsPieChart
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Pie Chart (TIME)'
+				}			}
+		};
+
+</script>
+
+<button id="pieChartButton6">PieChart TIME</button>
+
+<script>
+
+		document.getElementById('pieChartButton6').addEventListener('click', function() {
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie6);
+		});
+
+var configPie7 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [ 						dataPieChart
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'Time'
+				}				],
+				labels: [
+					labelsPieChart
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Pie Chart (Time)'
+				}			}
+		};
+
+</script>
+
+<button id="pieChartButton7">PieChart Time</button>
+
+<script>
+
+		document.getElementById('pieChartButton7').addEventListener('click', function() {
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie7);
+		});
+
+var configPie8 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [ 						dataPieChart
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'Value'
+				}				],
+				labels: [
+					labelsPieChart
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Pie Chart (Value)'
+				}			}
+		};
+
+</script>
+
+<button id="pieChartButton8">PieChart Value</button>
+
+<script>
+
+		document.getElementById('pieChartButton8').addEventListener('click', function() {
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie8);
+		});
+
+var configPie9 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [ 						dataPieChart
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'FlagCodes'
+				}				],
+				labels: [
+					labelsPieChart
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Pie Chart (FlagCodes)'
+				}			}
+		};
+
+</script>
+
+<button id="pieChartButton9">PieChart FlagCodes</button>
+
+<script>
+
+		document.getElementById('pieChartButton9').addEventListener('click', function() {
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie9);
+		});
+
+var configPie10 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [ 						dataPieChart
+					],
+					backgroundColor: [
+						window.chartColors.red,
+						window.chartColors.orange,
+						window.chartColors.yellow,
+						window.chartColors.green,
+						window.chartColors.blue,
+					],
+					label: 'Flags'
+				}				],
+				labels: [
+					labelsPieChart
+				]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Pie Chart (Flags)'
+				}			}
+		};
+
+</script>
+
+<button id="pieChartButton10">PieChart Flags</button>
+
+<script>
+
+		document.getElementById('pieChartButton10').addEventListener('click', function() {
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie10);
+		});
+
+
+
+		window.onload = function() {
+			var canvasLine = document.getElementById('canvasLine').getContext('2d');
+			window.myLine = new Chart(canvasLine, configLine);
+			var canvasBar = document.getElementById('canvasBar').getContext('2d');
+			window.myLine = new Chart(canvasBar, configBar);
+			var pie = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(pie, configPie0);
+		};
+	</script>
+</body>
+
+</html>
+

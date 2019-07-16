@@ -117,8 +117,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
@@ -177,8 +177,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
@@ -237,8 +237,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
@@ -297,8 +297,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
@@ -308,42 +308,6 @@
           "description" : "The parameter LOCATION is of type string and an example is AUS. This parameter indicates  the identifier for a point or extent in space. This parameter is required and  must be in path.\n",
           "required" : true,
           "example" : "AUS"
-        } ]
-      }
-    },
-    "/visualization" : {
-      "get" : {
-        "summary" : "GET visualization charts",
-        "operationId" : "getvisualization",
-        "description" : "Find HISTORICAL_POPULATION by visualization.\nThis API method finds HISTORICAL_POPULATION data by visualization. You must filter the results by a specific visualization. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /visualization/ or /?visualization= whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "content" : {
-              "text/html" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        },
-        "parameters" : [ {
-          "schema" : {
-            "type" : "integer"
-          },
-          "in" : "query",
-          "name" : "limit",
-          "description" : "Maximum number of results",
-          "example" : "10000"
-        }, {
-          "schema" : {
-            "type" : "integer"
-          },
-          "in" : "query",
-          "name" : "offset",
-          "description" : "Starting index for results",
-          "example" : "0"
         } ]
       }
     },
@@ -393,8 +357,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
@@ -453,8 +417,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
@@ -499,25 +463,25 @@
           "description" : "The parameter Age is of type string and an example is Total. This parameter indicates how long something has existed. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
-            "type" : "string"
+            "type" : "integer"
           },
           "in" : "query",
           "name" : "TIME",
-          "description" : "The parameter TIME is of type string and an example is 2005. This parameter indicates  the identifier for an instance or single occasion for some event. This parameter is not required and must be in query.\n"
+          "description" : "The parameter TIME is of type integer and an example is 2005. This parameter indicates  the identifier for an instance or single occasion for some event. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
-            "type" : "string"
+            "type" : "integer"
           },
           "in" : "query",
           "name" : "Time",
-          "description" : "The parameter Time is of type string and an example is 2005. This parameter indicates an instance or single occasion for some event. This parameter is not required and must be in query.\n"
+          "description" : "The parameter Time is of type integer and an example is 2005. This parameter indicates an instance or single occasion for some event. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
-            "type" : "string"
+            "type" : "integer"
           },
           "in" : "query",
           "name" : "Value",
-          "description" : "The parameter Value is of type string and an example is 10157211. This parameter indicates a numerical quantity measured or assigned or computed. This parameter is not required and must be in query.\n"
+          "description" : "The parameter Value is of type integer and an example is 10157211. This parameter indicates a numerical quantity measured or assigned or computed. This parameter is not required and must be in query.\n"
         }, {
           "schema" : {
             "type" : "string"
@@ -581,8 +545,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
@@ -592,6 +556,42 @@
           "description" : "The parameter AGE is of type string and an example is TOTAL. This parameter indicates  the identifier for how long something has existed. This parameter is required and  must be in path.\n",
           "required" : true,
           "example" : "TOTAL"
+        } ]
+      }
+    },
+    "/visualisation" : {
+      "get" : {
+        "summary" : "GET visualisation charts",
+        "operationId" : "getvisualisation",
+        "description" : "Find HISTORICAL_POPULATION by visualisation.\nThis API method finds HISTORICAL_POPULATION data by visualisation. You must filter the results by a specific visualisation. These results will contain the following fields: LOCATION, Country, SEX, Sex, AGE, Age, TIME, Time, Value, FlagCodes, Flags. An example of using this method is /visualisation/ or /?visualisation= whose result would include the following record:\n{\n  \"LOCATION\" : \"AUS\", \n  \"Country\" : \"Australia\", \n  \"SEX\" : \"W\", \n  \"Sex\" : \"Women\", \n  \"AGE\" : \"TOTAL\", \n  \"Age\" : \"Total\", \n  \"TIME\" : \"2005\", \n  \"Time\" : \"2005\", \n  \"Value\" : \"10157211\", \n  \"FlagCodes\" : \"\", \n  \"Flags\" : \"\"\n}",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "text/html" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        },
+        "parameters" : [ {
+          "schema" : {
+            "type" : "integer"
+          },
+          "in" : "query",
+          "name" : "limit",
+          "description" : "Maximum number of results",
+          "example" : "10000"
+        }, {
+          "schema" : {
+            "type" : "integer"
+          },
+          "in" : "query",
+          "name" : "offset",
+          "description" : "Starting index for results",
+          "example" : "0"
         } ]
       }
     },
@@ -641,8 +641,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
@@ -701,8 +701,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
@@ -761,8 +761,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
@@ -821,8 +821,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
@@ -881,8 +881,8 @@
             "type" : "string"
           },
           "in" : "query",
-          "name" : "visualization",
-          "description" : "Visualization of the data via charts"
+          "name" : "visualisation",
+          "description" : "Visualisation of the data via charts"
         }, {
           "schema" : {
             "type" : "string"
