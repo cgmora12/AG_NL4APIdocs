@@ -110,6 +110,7 @@ public class AG_NL4APIdocs {
 
 	// Variables
 	public static String fileName = "data";
+	public static String fileUrl = "";
 	public static String defaultFileName = "data";
 	public static String newfileName = "data";
 	public static String fileType = "csv";
@@ -166,7 +167,7 @@ public class AG_NL4APIdocs {
 					break;
 				case "csv2openapi" : csv2openapi(args);
 					break;
-				default : System.out.println("No operation called");
+				default : System.out.println("No operation called: try csv2api");
 					break;
 			}
 		} else {
@@ -185,6 +186,10 @@ public class AG_NL4APIdocs {
 		//args: csv2api data
 		if(args.length == 2) {
 			fileName = args[1];
+			if(fileName.contains("/")) {
+				fileUrl = fileName;
+				fileName = fileName.split("/")[fileName.split("/").length-1];
+			}
 			if(fileName.contains(".csv")) {
 				fileName = fileName.replace(".csv", "");
 			}
@@ -192,6 +197,13 @@ public class AG_NL4APIdocs {
 		//args: csv2api data table.xmi openapi.xmi 
 		else if(args.length == 4) {
 			fileName = args[1];
+			if(fileName.contains("/")) {
+				fileUrl = fileName;
+				fileName = fileName.split("/")[fileName.split("/").length-1];
+			}
+			if(fileName.contains(".csv")) {
+				fileName = fileName.replace(".csv", "");
+			}
 			modelFileName = args[2];
 			openAPIXMIFileName = args[3];
 		}
@@ -199,6 +211,9 @@ public class AG_NL4APIdocs {
 		mainFolderName = "AG_" + cleanString(fileName);
 
 		configBabel();
+		if(!fileUrl.isEmpty()) {
+			getCSVFromURL();
+		}
 		convertCSVIntoXMI();
 		model2modelTransformation();
 	    convertXMIintoJSON();
@@ -377,6 +392,10 @@ public class AG_NL4APIdocs {
 		//args: csv2openapi data
 		if(args.length == 2) {
 			fileName = args[1];
+			if(fileName.contains("/")) {
+				fileUrl = fileName;
+				fileName = fileName.split("/")[fileName.split("/").length-1];
+			}
 			if(fileName.contains(".csv")) {
 				fileName = fileName.replace(".csv", "");
 			}
@@ -384,6 +403,13 @@ public class AG_NL4APIdocs {
 		//args: csv2openapi data openapi.json
 		else if(args.length == 3) {
 			fileName = args[1];
+			if(fileName.contains("/")) {
+				fileUrl = fileName;
+				fileName = fileName.split("/")[fileName.split("/").length-1];
+			}
+			if(fileName.contains(".csv")) {
+				fileName = fileName.replace(".csv", "");
+			}
 			openAPIFileName = args[2];
 		}
 
@@ -810,6 +836,23 @@ public class AG_NL4APIdocs {
 			    Files.copy(src, Paths.get("config/ser.properties"));
 			}
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private static void getCSVFromURL() {
+		URL url;
+		try {
+			url = new URL(fileUrl);
+			ReadableByteChannel readableByteChannel = Channels.newChannel(url.openStream());
+			FileOutputStream fileOutputStream = new FileOutputStream(fileName + ".csv");
+			FileChannel fileChannel = fileOutputStream.getChannel();
+			fileOutputStream.getChannel().transferFrom(readableByteChannel, 0, Long.MAX_VALUE);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
