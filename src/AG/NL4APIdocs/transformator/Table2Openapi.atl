@@ -213,7 +213,7 @@ lazy rule PathOperation {
 			responses <- thisModule.OperationResponses(cell),
 			parameters <- Sequence{thisModule.OperationParameterLimit(cell), 
 				thisModule.OperationParameterOffset(cell), thisModule.OperationParameterVisualisation(cell), 
-				thisModule.OperationParameters(cell)}
+				thisModule.OperationParameters(cell, table)}
 		)
 }
 
@@ -355,13 +355,14 @@ lazy rule ParameterSchemaBasic {
 
 lazy rule OperationParameters {
 	from 
-		cell: Table!Cell
+		cell: Table!Cell,
+		table: Table!Table
 	to
 		operation_parameters: Openapi!Parameter (
 				in <- 'path',
 				name <- cell.value,
 				description <- cell.value,
-				schema <- thisModule.ParameterSchema(cell),
+				schema <- thisModule.ParameterSchema(cell, table),
 				required <- true
 		)
 }
@@ -406,10 +407,18 @@ lazy rule OperationParameterVisualisation {
 
 lazy rule ParameterSchema {
 	from
-		cell: Table!Cell
+		cell: Table!Cell,
+		table: Table!Table
+	using {
+			firstTableRow : Sequence(Table!Cell) = table.rows->first().cells;
+			lastTableRow : Sequence(Table!Cell) = table.rows->last().cells;
+	}
 	to
 		parameter_schema: Openapi!Schema (
-				type <- cell.type
+				type <- if lastTableRow->size() < firstTableRow->size() 
+				then cell.type
+				else lastTableRow->at(firstTableRow->indexOf(cell)).type
+				endif
 		)
 }
 
