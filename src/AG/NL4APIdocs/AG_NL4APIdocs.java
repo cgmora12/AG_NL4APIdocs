@@ -223,7 +223,7 @@ public class AG_NL4APIdocs {
 			openAPIXMIFileName = args[3];
 		}
 
-		mainFolderName = "AG_" + cleanString(fileName);
+		mainFolderName = "AG_" + cleanString(desiredFileName);
 
 		configBabel();
 		if(!fileUrl.isEmpty()) {
@@ -1034,7 +1034,9 @@ public class AG_NL4APIdocs {
                 	firstLine = false;*/
                 	
                 	// Cleaning
-                	line = cleanString(line);
+                	if(i==0) {
+                		line = cleanString(line);
+                	}
                 	
                 	String[] row = line.split(csvSplitBy);
                 	if(i==0) {
