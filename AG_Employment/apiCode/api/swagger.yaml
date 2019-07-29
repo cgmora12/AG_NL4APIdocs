@@ -1,0 +1,769 @@
+---
+swagger: "2.0"
+info:
+  description: "This API returns data about the \"Employment\", being able to filter\
+    \ by different characteristics, for example: _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+    \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+    \ _Standard_Occupational_Code, _Area_Name, _Employment.\nThe API response will\
+    \ be in JSON format, containing a list of objects with properties: _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+    \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+    \ _Standard_Occupational_Code, _Area_Name, _Employment.\nIn addition, the following\
+    \ parameters can always be used: visualisation, which is used to show the information\
+    \ graphically; limit, which serves to limit the maximum number of results to show\
+    \ (default 10000); and offset, to indicate from which number to return from the\
+    \ results set, very useful for pagination results.\nAn example of a query would\
+    \ be the following: localhost:8080/_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________/26210"
+  version: "1.0.0"
+  title: "Employment"
+host: "localhost:8080"
+basePath: "/"
+schemes:
+- "http"
+paths:
+  /:
+    get:
+      summary: "GET Employment"
+      description: "Find all \"Employment\".\nThis API method can be used to find\
+        \ all \"Employment\", and you can filter the results by _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nThese results will\
+        \ contain the following fields: _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/\", whose result would include all the records until the\
+        \ limit.\nIt is possible to specify the \"limit\" and the \"offset\" parameters\
+        \ in order to paginate the results, or \"visualisation\" to show information\
+        \ in charts."
+      operationId: "getEmployment"
+      produces:
+      - "application/json"
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      - name: "visualisation"
+        in: "query"
+        description: "The parameter \"visualisation\" is of type \"string\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "Area_Type"
+        in: "query"
+        description: "The parameter \"Area_Type\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+      - name: "_Area"
+        in: "query"
+        description: "The parameter \"_Area\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+      - name: "_Area_Name"
+        in: "query"
+        description: "The parameter \"_Area_Name\" is of type \"string\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "_Standard_Occupational_Code"
+        in: "query"
+        description: "The parameter \"_Standard_Occupational_Code\" is of type \"\
+          string\".\nThis parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "_Occupational_Title"
+        in: "query"
+        description: "The parameter \"_Occupational_Title\" is of type \"string\"\
+          .\nThis parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "_Employment"
+        in: "query"
+        description: "The parameter \"_Employment\" is of type \"string\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "Mean_Wage"
+        in: "query"
+        description: "The parameter \"Mean_Wage\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+      - name: "_Median_Wage"
+        in: "query"
+        description: "The parameter \"_Median_Wage\" is of type \"integer\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+      - name: "_Entry_Wage"
+        in: "query"
+        description: "The parameter \"_Entry_Wage\" is of type \"integer\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+      - name: "_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"
+        in: "query"
+        description: "The parameter \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+          \ is of type \"integer\".\nThis parameter is not required and must be in\
+          \ \"query\".\n"
+        required: false
+        type: "integer"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+  /Area_Type/{Area_Type}:
+    get:
+      summary: "GET Area_Type"
+      description: "Find \"Employment\" by Area_Type.\nThis API method can be used\
+        \ to find \"Employment\" data by Area_Type, and you must filter the results\
+        \ by a specific Area_Type.\nThese results will contain the following fields:\
+        \ _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/Area_Type/1\" or \"/?Area_Type=1\", whose result would\
+        \ include at least the following record:\n{\n  \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+        \ : \"26210\", \n  \"Mean_Wage\" : \"9385620\", \n  \"_Occupational_Title\"\
+        \ : \"\"\\\"Total\"\", \n  \"_Area\" : \"36\", \n  \"_Median_Wage\" : \"63270\"\
+        , \n  \"Area_Type\" : \"1\", \n  \"_Entry_Wage\" : \"46010\", \n  \"_Standard_Occupational_Code\"\
+        \ : \"\" 00-0000\"\", \n  \"_Area_Name\" : \"\"New York State\"\", \n  \"\
+        _Employment\" : \"\" All Occupations\\\"\"\"\n}"
+      operationId: "getArea_Type"
+      produces:
+      - "application/json"
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      - name: "visualisation"
+        in: "query"
+        description: "The parameter \"visualisation\" is of type \"string\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "Area_Type"
+        in: "path"
+        description: "The parameter \"Area_Type\" is of type \"integer\".\nThis parameter\
+          \ is required and  must be in \"path\".\n"
+        required: true
+        type: "integer"
+        default: 1
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+  /Mean_Wage/{Mean_Wage}:
+    get:
+      summary: "GET Mean_Wage"
+      description: "Find \"Employment\" by Mean_Wage.\nThis API method can be used\
+        \ to find \"Employment\" data by Mean_Wage, and you must filter the results\
+        \ by a specific Mean_Wage.\nThese results will contain the following fields:\
+        \ _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/Mean_Wage/9385620\" or \"/?Mean_Wage=9385620\", whose\
+        \ result would include at least the following record:\n{\n  \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+        \ : \"26210\", \n  \"Mean_Wage\" : \"9385620\", \n  \"_Occupational_Title\"\
+        \ : \"\"\\\"Total\"\", \n  \"_Area\" : \"36\", \n  \"_Median_Wage\" : \"63270\"\
+        , \n  \"Area_Type\" : \"1\", \n  \"_Entry_Wage\" : \"46010\", \n  \"_Standard_Occupational_Code\"\
+        \ : \"\" 00-0000\"\", \n  \"_Area_Name\" : \"\"New York State\"\", \n  \"\
+        _Employment\" : \"\" All Occupations\\\"\"\"\n}"
+      operationId: "getMean_Wage"
+      produces:
+      - "application/json"
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      - name: "visualisation"
+        in: "query"
+        description: "The parameter \"visualisation\" is of type \"string\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "Mean_Wage"
+        in: "path"
+        description: "The parameter \"Mean_Wage\" is of type \"integer\".\nThis parameter\
+          \ is required and  must be in \"path\".\n"
+        required: true
+        type: "integer"
+        default: 9385620
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+  /_Area/{_Area}:
+    get:
+      summary: "GET _Area"
+      description: "Find \"Employment\" by _Area.\nThis API method can be used to\
+        \ find \"Employment\" data by _Area, and you must filter the results by a\
+        \ specific _Area.\nThese results will contain the following fields: _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/_Area/36\" or \"/?_Area=36\", whose result would include\
+        \ at least the following record:\n{\n  \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+        \ : \"26210\", \n  \"Mean_Wage\" : \"9385620\", \n  \"_Occupational_Title\"\
+        \ : \"\"\\\"Total\"\", \n  \"_Area\" : \"36\", \n  \"_Median_Wage\" : \"63270\"\
+        , \n  \"Area_Type\" : \"1\", \n  \"_Entry_Wage\" : \"46010\", \n  \"_Standard_Occupational_Code\"\
+        \ : \"\" 00-0000\"\", \n  \"_Area_Name\" : \"\"New York State\"\", \n  \"\
+        _Employment\" : \"\" All Occupations\\\"\"\"\n}"
+      operationId: "get_Area"
+      produces:
+      - "application/json"
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      - name: "visualisation"
+        in: "query"
+        description: "The parameter \"visualisation\" is of type \"string\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "_Area"
+        in: "path"
+        description: "The parameter \"_Area\" is of type \"integer\".\nThis parameter\
+          \ is required and  must be in \"path\".\n"
+        required: true
+        type: "integer"
+        default: 36
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+  /_Area_Name/{_Area_Name}:
+    get:
+      summary: "GET _Area_Name"
+      description: "Find \"Employment\" by _Area_Name.\nThis API method can be used\
+        \ to find \"Employment\" data by _Area_Name, and you must filter the results\
+        \ by a specific _Area_Name.\nThese results will contain the following fields:\
+        \ _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/_Area_Name/\"New York State\"\" or \"/?_Area_Name=\"New\
+        \ York State\"\", whose result would include at least the following record:\n\
+        {\n  \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+        \ : \"26210\", \n  \"Mean_Wage\" : \"9385620\", \n  \"_Occupational_Title\"\
+        \ : \"\"\\\"Total\"\", \n  \"_Area\" : \"36\", \n  \"_Median_Wage\" : \"63270\"\
+        , \n  \"Area_Type\" : \"1\", \n  \"_Entry_Wage\" : \"46010\", \n  \"_Standard_Occupational_Code\"\
+        \ : \"\" 00-0000\"\", \n  \"_Area_Name\" : \"\"New York State\"\", \n  \"\
+        _Employment\" : \"\" All Occupations\\\"\"\"\n}"
+      operationId: "get_Area_Name"
+      produces:
+      - "application/json"
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      - name: "visualisation"
+        in: "query"
+        description: "The parameter \"visualisation\" is of type \"string\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "_Area_Name"
+        in: "path"
+        description: "The parameter \"_Area_Name\" is of type \"string\".\nThis parameter\
+          \ is required and  must be in \"path\".\n"
+        required: true
+        type: "string"
+        default: "New York State"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+  /_Employment/{_Employment}:
+    get:
+      summary: "GET _Employment"
+      description: "Find \"Employment\" by _Employment.\nThis API method can be used\
+        \ to find \"Employment\" data by _Employment, and you must filter the results\
+        \ by a specific _Employment.\nThese results will contain the following fields:\
+        \ _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/_Employment/\" All Occupations\\\"\"\" or \"/?_Employment=\"\
+        \ All Occupations\\\"\"\", whose result would include at least the following\
+        \ record:\n{\n  \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+        \ : \"26210\", \n  \"Mean_Wage\" : \"9385620\", \n  \"_Occupational_Title\"\
+        \ : \"\"\\\"Total\"\", \n  \"_Area\" : \"36\", \n  \"_Median_Wage\" : \"63270\"\
+        , \n  \"Area_Type\" : \"1\", \n  \"_Entry_Wage\" : \"46010\", \n  \"_Standard_Occupational_Code\"\
+        \ : \"\" 00-0000\"\", \n  \"_Area_Name\" : \"\"New York State\"\", \n  \"\
+        _Employment\" : \"\" All Occupations\\\"\"\"\n}"
+      operationId: "get_Employment"
+      produces:
+      - "application/json"
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      - name: "visualisation"
+        in: "query"
+        description: "The parameter \"visualisation\" is of type \"string\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "_Employment"
+        in: "path"
+        description: "The parameter \"_Employment\" is of type \"string\".\nThis parameter\
+          \ is required and  must be in \"path\".\n"
+        required: true
+        type: "string"
+        default: " All Occupations\""
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+  /_Entry_Wage/{_Entry_Wage}:
+    get:
+      summary: "GET _Entry_Wage"
+      description: "Find \"Employment\" by _Entry_Wage.\nThis API method can be used\
+        \ to find \"Employment\" data by _Entry_Wage, and you must filter the results\
+        \ by a specific _Entry_Wage.\nThese results will contain the following fields:\
+        \ _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/_Entry_Wage/46010\" or \"/?_Entry_Wage=46010\", whose\
+        \ result would include at least the following record:\n{\n  \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+        \ : \"26210\", \n  \"Mean_Wage\" : \"9385620\", \n  \"_Occupational_Title\"\
+        \ : \"\"\\\"Total\"\", \n  \"_Area\" : \"36\", \n  \"_Median_Wage\" : \"63270\"\
+        , \n  \"Area_Type\" : \"1\", \n  \"_Entry_Wage\" : \"46010\", \n  \"_Standard_Occupational_Code\"\
+        \ : \"\" 00-0000\"\", \n  \"_Area_Name\" : \"\"New York State\"\", \n  \"\
+        _Employment\" : \"\" All Occupations\\\"\"\"\n}"
+      operationId: "get_Entry_Wage"
+      produces:
+      - "application/json"
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      - name: "visualisation"
+        in: "query"
+        description: "The parameter \"visualisation\" is of type \"string\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "_Entry_Wage"
+        in: "path"
+        description: "The parameter \"_Entry_Wage\" is of type \"integer\".\nThis\
+          \ parameter is required and  must be in \"path\".\n"
+        required: true
+        type: "integer"
+        default: 46010
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+  ? /_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________/{_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________}
+  : get:
+      summary: "GET _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"
+      description: "Find \"Employment\" by _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________.\n\
+        This API method can be used to find \"Employment\" data by _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ and you must filter the results by a specific _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________.\n\
+        These results will contain the following fields: _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________/26210\"\
+        \ or \"/?_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________=26210\"\
+        , whose result would include at least the following record:\n{\n  \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+        \ : \"26210\", \n  \"Mean_Wage\" : \"9385620\", \n  \"_Occupational_Title\"\
+        \ : \"\"\\\"Total\"\", \n  \"_Area\" : \"36\", \n  \"_Median_Wage\" : \"63270\"\
+        , \n  \"Area_Type\" : \"1\", \n  \"_Entry_Wage\" : \"46010\", \n  \"_Standard_Occupational_Code\"\
+        \ : \"\" 00-0000\"\", \n  \"_Area_Name\" : \"\"New York State\"\", \n  \"\
+        _Employment\" : \"\" All Occupations\\\"\"\"\n}"
+      operationId: "get_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"
+      produces:
+      - "application/json"
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      - name: "visualisation"
+        in: "query"
+        description: "The parameter \"visualisation\" is of type \"string\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"
+        in: "path"
+        description: "The parameter \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+          \ is of type \"integer\".\nThis parameter is required and  must be in \"\
+          path\".\n"
+        required: true
+        type: "integer"
+        default: 26210
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+  /_Median_Wage/{_Median_Wage}:
+    get:
+      summary: "GET _Median_Wage"
+      description: "Find \"Employment\" by _Median_Wage.\nThis API method can be used\
+        \ to find \"Employment\" data by _Median_Wage, and you must filter the results\
+        \ by a specific _Median_Wage.\nThese results will contain the following fields:\
+        \ _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/_Median_Wage/63270\" or \"/?_Median_Wage=63270\", whose\
+        \ result would include at least the following record:\n{\n  \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+        \ : \"26210\", \n  \"Mean_Wage\" : \"9385620\", \n  \"_Occupational_Title\"\
+        \ : \"\"\\\"Total\"\", \n  \"_Area\" : \"36\", \n  \"_Median_Wage\" : \"63270\"\
+        , \n  \"Area_Type\" : \"1\", \n  \"_Entry_Wage\" : \"46010\", \n  \"_Standard_Occupational_Code\"\
+        \ : \"\" 00-0000\"\", \n  \"_Area_Name\" : \"\"New York State\"\", \n  \"\
+        _Employment\" : \"\" All Occupations\\\"\"\"\n}"
+      operationId: "get_Median_Wage"
+      produces:
+      - "application/json"
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      - name: "visualisation"
+        in: "query"
+        description: "The parameter \"visualisation\" is of type \"string\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "_Median_Wage"
+        in: "path"
+        description: "The parameter \"_Median_Wage\" is of type \"integer\".\nThis\
+          \ parameter is required and  must be in \"path\".\n"
+        required: true
+        type: "integer"
+        default: 63270
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+  /_Occupational_Title/{_Occupational_Title}:
+    get:
+      summary: "GET _Occupational_Title"
+      description: "Find \"Employment\" by _Occupational_Title.\nThis API method can\
+        \ be used to find \"Employment\" data by _Occupational_Title, and you must\
+        \ filter the results by a specific _Occupational_Title.\nThese results will\
+        \ contain the following fields: _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/_Occupational_Title/\"\\\"Total\"\" or \"/?_Occupational_Title=\"\
+        \\\"Total\"\", whose result would include at least the following record:\n\
+        {\n  \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+        \ : \"26210\", \n  \"Mean_Wage\" : \"9385620\", \n  \"_Occupational_Title\"\
+        \ : \"\"\\\"Total\"\", \n  \"_Area\" : \"36\", \n  \"_Median_Wage\" : \"63270\"\
+        , \n  \"Area_Type\" : \"1\", \n  \"_Entry_Wage\" : \"46010\", \n  \"_Standard_Occupational_Code\"\
+        \ : \"\" 00-0000\"\", \n  \"_Area_Name\" : \"\"New York State\"\", \n  \"\
+        _Employment\" : \"\" All Occupations\\\"\"\"\n}"
+      operationId: "get_Occupational_Title"
+      produces:
+      - "application/json"
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      - name: "visualisation"
+        in: "query"
+        description: "The parameter \"visualisation\" is of type \"string\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "_Occupational_Title"
+        in: "path"
+        description: "The parameter \"_Occupational_Title\" is of type \"string\"\
+          .\nThis parameter is required and  must be in \"path\".\n"
+        required: true
+        type: "string"
+        default: "\"Total"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+  /_Standard_Occupational_Code/{_Standard_Occupational_Code}:
+    get:
+      summary: "GET _Standard_Occupational_Code"
+      description: "Find \"Employment\" by _Standard_Occupational_Code.\nThis API\
+        \ method can be used to find \"Employment\" data by _Standard_Occupational_Code,\
+        \ and you must filter the results by a specific _Standard_Occupational_Code.\n\
+        These results will contain the following fields: _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/_Standard_Occupational_Code/\" 00-0000\"\" or \"/?_Standard_Occupational_Code=\"\
+        \ 00-0000\"\", whose result would include at least the following record:\n\
+        {\n  \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+        \ : \"26210\", \n  \"Mean_Wage\" : \"9385620\", \n  \"_Occupational_Title\"\
+        \ : \"\"\\\"Total\"\", \n  \"_Area\" : \"36\", \n  \"_Median_Wage\" : \"63270\"\
+        , \n  \"Area_Type\" : \"1\", \n  \"_Entry_Wage\" : \"46010\", \n  \"_Standard_Occupational_Code\"\
+        \ : \"\" 00-0000\"\", \n  \"_Area_Name\" : \"\"New York State\"\", \n  \"\
+        _Employment\" : \"\" All Occupations\\\"\"\"\n}"
+      operationId: "get_Standard_Occupational_Code"
+      produces:
+      - "application/json"
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      - name: "visualisation"
+        in: "query"
+        description: "The parameter \"visualisation\" is of type \"string\".\nThis\
+          \ parameter is not required and must be in \"query\".\n"
+        required: false
+        type: "string"
+      - name: "_Standard_Occupational_Code"
+        in: "path"
+        description: "The parameter \"_Standard_Occupational_Code\" is of type \"\
+          string\".\nThis parameter is required and  must be in \"path\".\n"
+        required: true
+        type: "string"
+        default: " 00-0000"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+  /visualisation:
+    get:
+      summary: "GET visualisation charts"
+      description: "Find \"Employment\" by visualisation.\nThis API method can be\
+        \ used to find \"Employment\" data by visualisation, and you must filter the\
+        \ results by a specific visualisation.\nThese results will contain the following\
+        \ fields: _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________,\
+        \ Mean_Wage, _Occupational_Title, _Area, _Median_Wage, Area_Type, _Entry_Wage,\
+        \ _Standard_Occupational_Code, _Area_Name, _Employment.\nAn example of using\
+        \ this method is \"/visualisation/\" or \"/?visualisation=\", whose result\
+        \ would include at least the following record:\n{\n  \"_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\"\
+        \ : \"26210\", \n  \"Mean_Wage\" : \"9385620\", \n  \"_Occupational_Title\"\
+        \ : \"\"\\\"Total\"\", \n  \"_Area\" : \"36\", \n  \"_Median_Wage\" : \"63270\"\
+        , \n  \"Area_Type\" : \"1\", \n  \"_Entry_Wage\" : \"46010\", \n  \"_Standard_Occupational_Code\"\
+        \ : \"\" 00-0000\"\", \n  \"_Area_Name\" : \"\"New York State\"\", \n  \"\
+        _Employment\" : \"\" All Occupations\\\"\"\"\n}"
+      operationId: "getvisualisation"
+      produces:
+      - "text/html"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "The parameter \"limit\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 10000
+      - name: "offset"
+        in: "query"
+        description: "The parameter \"offset\" is of type \"integer\".\nThis parameter\
+          \ is not required and must be in \"query\".\n"
+        required: false
+        type: "integer"
+        default: 0
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+      x-swagger-router-controller: "Default"
+definitions:
+  mainComponent:
+    type: "object"
+    properties:
+      ? _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+      : type: "integer"
+        example: 26210
+        description: "The property _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________\
+          \ is of type \"integer\" and an example is \"26210\".\n"
+      Mean_Wage:
+        type: "integer"
+        example: 9385620
+        description: "The property Mean_Wage is of type \"integer\" and an example\
+          \ is \"9385620\".\n"
+      _Occupational_Title:
+        type: "string"
+        example: "\"Total"
+        description: "The property _Occupational_Title is of type \"string\" and an\
+          \ example is \"\"\\\"Total\"\".\n"
+      _Area:
+        type: "integer"
+        example: 36
+        description: "The property _Area is of type \"integer\" and an example is\
+          \ \"36\".\n"
+      _Median_Wage:
+        type: "integer"
+        example: 63270
+        description: "The property _Median_Wage is of type \"integer\" and an example\
+          \ is \"63270\".\n"
+      Area_Type:
+        type: "integer"
+        example: 1
+        description: "The property Area_Type is of type \"integer\" and an example\
+          \ is \"1\".\n"
+      _Entry_Wage:
+        type: "integer"
+        example: 46010
+        description: "The property _Entry_Wage is of type \"integer\" and an example\
+          \ is \"46010\".\n"
+      _Standard_Occupational_Code:
+        type: "string"
+        example: " 00-0000"
+        description: "The property _Standard_Occupational_Code is of type \"string\"\
+          \ and an example is \"\" 00-0000\"\".\n"
+      _Area_Name:
+        type: "string"
+        example: "New York State"
+        description: "The property _Area_Name is of type \"string\" and an example\
+          \ is \"\"New York State\"\".\n"
+      _Employment:
+        type: "string"
+        example: " All Occupations\""
+        description: "The property _Employment is of type \"string\" and an example\
+          \ is \"\" All Occupations\\\"\"\".\n"
+    xml:
+      name: "mainComponent"

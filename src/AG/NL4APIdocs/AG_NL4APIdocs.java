@@ -89,6 +89,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONTokener;
 import org.json.XML;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -104,7 +105,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import Generator.NLGenT;
+import NL4OpenAPI.NL4OpenAPI;
 
 public class AG_NL4APIdocs {
 
@@ -1325,9 +1326,9 @@ public class AG_NL4APIdocs {
 		HashMap<String, String> examplesHashMap = new HashMap<>();
 		
 		String jsonString = "", jsonStringFormatted = "", swaggerString = "", swaggerStringFormatted = "";
-		
+		JSONObject xmlJSONObj = new JSONObject();
 		try {
-            JSONObject xmlJSONObj = XML.toJSONObject(
+            xmlJSONObj = XML.toJSONObject(
             		FileUtils.readFileToString(new File(mainFolderName + File.separator + tempFolderName + File.separator + openAPIXMIFileName)));
             
             xmlJSONObj = xmlJSONObj.getJSONObject("openapi:API");
@@ -1335,9 +1336,6 @@ public class AG_NL4APIdocs {
             xmlJSONObj.remove("xmi:version");
             xmlJSONObj.remove("xmlns:xmi");
             xmlJSONObj.remove("xmlns:openapi");
-            
-            //TODO: api description
-            //xmlJSONObj = xmlJSONObj.getJSONObject("info").put("description", apiDescription);
             
             JSONArray pathsArray = xmlJSONObj.getJSONArray("paths");
             xmlJSONObj.remove("paths");
@@ -1391,11 +1389,11 @@ public class AG_NL4APIdocs {
 	        		parametersList.add(parameterHashMap);
 	        		fullPropertiesList.add(parameterHashMap);
 	
-	                String parameterDescription = NLGenT.generateText(apiHashMap, parametersList, 2);
-	                System.out.println(parameterDescription);
+	                //String parameterDescription = NLGenT.generateText(apiHashMap, parametersList, 2);
+	                //System.out.println(parameterDescription);
 	                
-	                xmlJSONObj.getJSONObject("components").getJSONObject("schemas").getJSONObject("mainComponent")
-	                	.getJSONObject("properties").getJSONObject(path).put("description", parameterDescription);
+	                //xmlJSONObj.getJSONObject("components").getJSONObject("schemas").getJSONObject("mainComponent")
+	                //	.getJSONObject("properties").getJSONObject(path).put("description", parameterDescription);
             	} catch(Exception e) {
             		System.out.println(e.getMessage());
             	}
@@ -1482,11 +1480,11 @@ public class AG_NL4APIdocs {
 		   	             			.getJSONObject(parameterIterator).put("example", example);
 		   	        		}
 		   	                
-		   	                String parameterDescription = NLGenT.generateText(apiHashMap, parametersList, 2);
-		   	                System.out.println(parameterDescription);
+		   	                //String parameterDescription = NLGenT.generateText(apiHashMap, parametersList, 2);
+		   	                //System.out.println(parameterDescription);
 		   	                
-		   	                xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").getJSONArray("parameters")
-		   	             		.getJSONObject(parameterIterator).put("description", parameterDescription);
+		   	                //xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").getJSONArray("parameters")
+		   	             	//	.getJSONObject(parameterIterator).put("description", parameterDescription);
 	   	        		}
 	   	        		else {
 	   	        			int exampleInt = parametersArray.getJSONObject(parameterIterator).getInt("example");
@@ -1508,9 +1506,9 @@ public class AG_NL4APIdocs {
         		apiHashMap.put("methodName", methodName);
         		
         		try {
-	                String methodDescription = NLGenT.generateText(apiHashMap, fullPropertiesList, 1);
-	                xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").put("description", methodDescription);
-	                System.out.println(methodDescription);
+	                //String methodDescription = NLGenT.generateText(apiHashMap, fullPropertiesList, 1);
+	                //xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").put("description", methodDescription);
+	                //System.out.println(methodDescription);
         		} catch (Exception e) {
         			e.printStackTrace();
         		}
@@ -1567,9 +1565,9 @@ public class AG_NL4APIdocs {
             }
             
             try {
-	            String apiDescription = NLGenT.generateText(apiHashMap, fullPropertiesList, 0);
-	            System.out.println(apiDescription);
-	            xmlJSONObj.getJSONObject("info").put("description", apiDescription);
+	            //String apiDescription = NLGenT.generateText(apiHashMap, fullPropertiesList, 0);
+	            //System.out.println(apiDescription);
+	            //xmlJSONObj.getJSONObject("info").put("description", apiDescription);
             } catch(Exception e) {
             	e.printStackTrace();
             }
@@ -1578,6 +1576,115 @@ public class AG_NL4APIdocs {
             ObjectMapper jsonFormatter = new ObjectMapper();
             Object json = jsonFormatter.readValue(jsonString, Object.class);
             jsonStringFormatted = jsonFormatter.writerWithDefaultPrettyPrinter().writeValueAsString(json);
+    		
+    		try (PrintWriter out = new PrintWriter(mainFolderName + File.separator + tempFolderName + File.separator + openAPIFileName)) {
+    		    out.println(jsonStringFormatted);
+    		} catch (FileNotFoundException e) {
+    			System.out.println(e.getMessage());
+    		}
+    		
+    		NL4OpenAPI nl4openapi = new NL4OpenAPI
+    				(mainFolderName + File.separator + tempFolderName + File.separator + openAPIFileName,
+    				mainFolderName + File.separator + tempFolderName + File.separator + openAPIFileName);
+    		
+    		nl4openapi.openapi2NL();
+
+        } catch (JSONException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+        } catch (JsonParseException e) {
+			System.out.println(e.getMessage());
+		} catch (JsonMappingException e) {
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		// Parse to swagger		
+		try {
+			InputStream is = new FileInputStream(mainFolderName + File.separator + tempFolderName + File.separator + openAPIFileName);
+            JSONTokener tokener = new JSONTokener(is);
+            JSONObject openapiJsonObject = new JSONObject(tokener);
+        	JSONArray propertiesArray = xmlJSONObj.getJSONObject("components").getJSONObject("schemas")
+        			.getJSONObject("mainComponent").getJSONObject("properties").names();
+            
+        	JSONObject propertiesJson = openapiJsonObject.getJSONObject("components").getJSONObject("schemas")
+        			.getJSONObject("mainComponent").getJSONObject("properties");
+        	JSONArray propertiesJsonArrayKeys = propertiesJson.names();
+        	
+            for(int i = 0; i < propertiesArray.length(); i++) {  
+            	for(int j = 0; j < propertiesJsonArrayKeys.length(); j++) {  
+            		String path = propertiesArray.getString(i);
+                	String propertyJson = propertiesJsonArrayKeys.getString(j);
+            		if(path.contentEquals(propertyJson)) {
+		            	try {
+		                	String propertyDescription = propertiesJson.getJSONObject(path).getString("description");
+			                xmlJSONObj.getJSONObject("components").getJSONObject("schemas").getJSONObject("mainComponent")
+			                	.getJSONObject("properties").getJSONObject(path).put("description", propertyDescription);
+		            	} catch(Exception e) {
+		            		System.out.println(e.getMessage());
+		            	}
+            		}
+            	}
+            }
+
+
+            JSONArray pathsArray = xmlJSONObj.getJSONObject("paths").names();
+            
+        	JSONObject pathsJson = openapiJsonObject.getJSONObject("paths");
+        	JSONArray pathsJsonArrayKeys = pathsJson.names();
+        	
+            for(int i = 0; i < pathsArray.length(); i++) {
+                for(int j = 0; j < pathsJsonArrayKeys.length(); j++) {
+	            	String path = pathsArray.getString(i);
+	            	String pathJson = pathsJsonArrayKeys.getString(j);
+
+	            	JSONArray parametersArray = xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").getJSONArray("parameters");
+	            	JSONArray parametersJsonArray = pathsJson.getJSONObject(path).getJSONObject("get").getJSONArray("parameters");
+	
+	            	for (int parameterIterator = 0; parameterIterator < parametersArray.length (); parameterIterator++) {
+	            		for (int parameterJsonIterator = 0; parameterJsonIterator < parametersJsonArray.length (); parameterJsonIterator++) {
+		            		try {
+			               		String paramName = parametersArray.getJSONObject(parameterIterator).getString("name");
+			               		String paramJsonName = parametersArray.getJSONObject(parameterJsonIterator).getString("name");
+		            			if(paramName.contentEquals(paramJsonName)) {
+		            				String parameterDescription = parametersJsonArray.getJSONObject(parameterJsonIterator).getString("description");
+				   	                xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").getJSONArray("parameters")
+				   	             		.getJSONObject(parameterIterator).put("description", parameterDescription);
+		            			}
+			               	} catch(Exception e) {
+			               		System.out.println(e.getMessage());
+			               	}
+	            		}
+	            	}
+	
+	            	String methodName = "";
+	            	try{
+	            		methodName = path.split("/")[1];
+	            	} catch(Exception e) {
+	            		methodName = "/";
+	            	}
+	        		
+	        		try {
+	        			if(path.contentEquals(pathJson)) {
+	        				String methodDescription = pathsJson.getJSONObject(path).getJSONObject("get").getString("description");
+	        				xmlJSONObj.getJSONObject("paths").getJSONObject(path).getJSONObject("get").put("description", methodDescription);
+		                //System.out.println(methodDescription);
+	        			}
+	        		} catch (Exception e) {
+	        			e.printStackTrace();
+	        		}
+                }
+            }
+            
+            try {
+            	String apiDescription = openapiJsonObject.getJSONObject("info").getString("description");
+	            //System.out.println(apiDescription);
+	            xmlJSONObj.getJSONObject("info").put("description", apiDescription);
+            } catch(Exception e) {
+            	e.printStackTrace();
+            }
+            
             
             JSONObject xmlSwaggerObj = xmlJSONObj;
             xmlSwaggerObj.remove("openapi");
@@ -1688,12 +1795,6 @@ public class AG_NL4APIdocs {
 		} catch (JsonMappingException e) {
 			System.out.println(e.getMessage());
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-		
-		try (PrintWriter out = new PrintWriter(mainFolderName + File.separator + tempFolderName + File.separator + openAPIFileName)) {
-		    out.println(jsonStringFormatted);
-		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
 		

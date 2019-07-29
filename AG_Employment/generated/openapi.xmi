@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="ASCII"?>
+<openapi:API xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:openapi="platform:/resource/TransformationRules/Openapi.ecore" openapi="3.0.0">
+  <info version="1.0.0" title="Employment" description="Obtaining the Employment"/>
+  <servers url="http://localhost:8080"/>
+  <paths pattern="/">
+    <get summary="GET Employment" operationId="getEmployment" description="Use value 'all' in a parameter for non-empty values">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="Area_Type" in="query" description="Area_Type">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="_Area" in="query" description="_Area">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="_Area_Name" in="query" description="_Area_Name">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="_Standard_Occupational_Code" in="query" description="_Standard_Occupational_Code">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="_Occupational_Title" in="query" description="_Occupational_Title">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="_Employment" in="query" description="_Employment">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="Mean_Wage" in="query" description="Mean_Wage">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="_Median_Wage" in="query" description="_Median_Wage">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="_Entry_Wage" in="query" description="_Entry_Wage">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________" in="query" description="_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________">
+        <schema type="integer"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="application/json">
+            <contentType>
+              <schema type="array">
+                <items ref="#/components/schemas/mainComponent"/>
+              </schema>
+            </contentType>
+          </content>
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <paths pattern="/visualisation">
+    <get summary="GET visualisation charts" operationId="getvisualisation" description="Get visualisation charts of the data">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <paths pattern="/Area_Type/{Area_Type}">
+    <get summary="GET Area_Type" operationId="getArea_Type" description="Use value 'all' in a parameter for non-empty values">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="Area_Type" in="path" description="Area_Type" required="true">
+        <schema type="integer"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="application/json">
+            <contentType>
+              <schema type="array">
+                <items ref="#/components/schemas/mainComponent"/>
+              </schema>
+            </contentType>
+          </content>
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <paths pattern="/_Area/{_Area}">
+    <get summary="GET _Area" operationId="get_Area" description="Use value 'all' in a parameter for non-empty values">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="_Area" in="path" description="_Area" required="true">
+        <schema type="integer"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="application/json">
+            <contentType>
+              <schema type="array">
+                <items ref="#/components/schemas/mainComponent"/>
+              </schema>
+            </contentType>
+          </content>
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <paths pattern="/_Area_Name/{_Area_Name}">
+    <get summary="GET _Area_Name" operationId="get_Area_Name" description="Use value 'all' in a parameter for non-empty values">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="_Area_Name" in="path" description="_Area_Name" required="true">
+        <schema type="string"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="application/json">
+            <contentType>
+              <schema type="array">
+                <items ref="#/components/schemas/mainComponent"/>
+              </schema>
+            </contentType>
+          </content>
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <paths pattern="/_Standard_Occupational_Code/{_Standard_Occupational_Code}">
+    <get summary="GET _Standard_Occupational_Code" operationId="get_Standard_Occupational_Code" description="Use value 'all' in a parameter for non-empty values">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="_Standard_Occupational_Code" in="path" description="_Standard_Occupational_Code" required="true">
+        <schema type="string"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="application/json">
+            <contentType>
+              <schema type="array">
+                <items ref="#/components/schemas/mainComponent"/>
+              </schema>
+            </contentType>
+          </content>
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <paths pattern="/_Occupational_Title/{_Occupational_Title}">
+    <get summary="GET _Occupational_Title" operationId="get_Occupational_Title" description="Use value 'all' in a parameter for non-empty values">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="_Occupational_Title" in="path" description="_Occupational_Title" required="true">
+        <schema type="string"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="application/json">
+            <contentType>
+              <schema type="array">
+                <items ref="#/components/schemas/mainComponent"/>
+              </schema>
+            </contentType>
+          </content>
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <paths pattern="/_Employment/{_Employment}">
+    <get summary="GET _Employment" operationId="get_Employment" description="Use value 'all' in a parameter for non-empty values">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="_Employment" in="path" description="_Employment" required="true">
+        <schema type="string"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="application/json">
+            <contentType>
+              <schema type="array">
+                <items ref="#/components/schemas/mainComponent"/>
+              </schema>
+            </contentType>
+          </content>
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <paths pattern="/Mean_Wage/{Mean_Wage}">
+    <get summary="GET Mean_Wage" operationId="getMean_Wage" description="Use value 'all' in a parameter for non-empty values">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="Mean_Wage" in="path" description="Mean_Wage" required="true">
+        <schema type="integer"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="application/json">
+            <contentType>
+              <schema type="array">
+                <items ref="#/components/schemas/mainComponent"/>
+              </schema>
+            </contentType>
+          </content>
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <paths pattern="/_Median_Wage/{_Median_Wage}">
+    <get summary="GET _Median_Wage" operationId="get_Median_Wage" description="Use value 'all' in a parameter for non-empty values">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="_Median_Wage" in="path" description="_Median_Wage" required="true">
+        <schema type="integer"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="application/json">
+            <contentType>
+              <schema type="array">
+                <items ref="#/components/schemas/mainComponent"/>
+              </schema>
+            </contentType>
+          </content>
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <paths pattern="/_Entry_Wage/{_Entry_Wage}">
+    <get summary="GET _Entry_Wage" operationId="get_Entry_Wage" description="Use value 'all' in a parameter for non-empty values">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="_Entry_Wage" in="path" description="_Entry_Wage" required="true">
+        <schema type="integer"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="application/json">
+            <contentType>
+              <schema type="array">
+                <items ref="#/components/schemas/mainComponent"/>
+              </schema>
+            </contentType>
+          </content>
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <paths pattern="/_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________/{_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________}">
+    <get summary="GET _Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________" operationId="get_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________" description="Use value 'all' in a parameter for non-empty values">
+      <parameters name="limit" in="query" description="Maximum number of results" example="10000">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="offset" in="query" description="Starting index for results" example="0">
+        <schema type="integer"/>
+      </parameters>
+      <parameters name="visualisation" in="query" description="Visualisation of the data via charts">
+        <schema type="string"/>
+      </parameters>
+      <parameters name="_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________" in="path" description="_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________" required="true">
+        <schema type="integer"/>
+      </parameters>
+      <responses code="200">
+        <responseCode description="successful operation">
+          <content contentTypeName="application/json">
+            <contentType>
+              <schema type="array">
+                <items ref="#/components/schemas/mainComponent"/>
+              </schema>
+            </contentType>
+          </content>
+          <content contentTypeName="text/html">
+            <contentType>
+              <schema type="string"/>
+            </contentType>
+          </content>
+        </responseCode>
+      </responses>
+    </get>
+  </paths>
+  <components>
+    <schemas>
+      <mainComponent type="object">
+        <properties name="Area_Type">
+          <content type="integer" example="1"/>
+        </properties>
+        <properties name="_Area">
+          <content type="integer" example="36"/>
+        </properties>
+        <properties name="_Area_Name">
+          <content type="string" example="New York State"/>
+        </properties>
+        <properties name="_Standard_Occupational_Code">
+          <content type="string" example=" 00-0000"/>
+        </properties>
+        <properties name="_Occupational_Title">
+          <content type="string" example="&quot;Total"/>
+        </properties>
+        <properties name="_Employment">
+          <content type="string" example=" All Occupations&quot;"/>
+        </properties>
+        <properties name="Mean_Wage">
+          <content type="integer" example="9385620"/>
+        </properties>
+        <properties name="_Median_Wage">
+          <content type="integer" example="63270"/>
+        </properties>
+        <properties name="_Entry_Wage">
+          <content type="integer" example="46010"/>
+        </properties>
+        <properties name="_Experienced_Wage_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________">
+          <content type="integer" example="26210"/>
+        </properties>
+        <xml name="mainComponent"/>
+      </mainComponent>
+    </schemas>
+  </components>
+</openapi:API>
