@@ -104,6 +104,8 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 
 import NL4OpenAPI.NL4OpenAPI;
 
@@ -674,8 +676,9 @@ private static void cleanCSV() {
 	    
 		
         // Rewrite CSV without rare characters
-		BufferedReader reader = null;
+		CSVReader reader = null;
         String line = "";
+        String[] file = null;
         String csvSplitBy = ",";
         ArrayList<String> rows = new ArrayList<String>();
 
@@ -707,15 +710,22 @@ private static void cleanCSV() {
         FileWriter writer = null;
         try
         {
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile), "UTF8"));
+            reader = new CSVReader(new InputStreamReader(new FileInputStream(csvFile), "UTF8"));
             writer = new FileWriter(mainFolderName + File.separator + apiCodeFolderName + File.separator + newfileName + "." + fileType);    
             int counter = 0;            
-            while ((line = reader.readLine()) != null) {
+            while ((file = reader.readNext()) != null) {
+            	line = "";
                 if(counter == 0) {
-                    writer.write(cleanString(line));
+                	for(int i = 0; i < file.length; i++) {
+                		line += file[i].replaceAll(",", ".") + ",";
+                	}
+                    writer.write(cleanString(line.substring(0, line.length() - 1)));
                 } else {
+                	for(int i = 0; i < file.length; i++) {
+                		line += file[i].replaceAll(",", ".") + ",";
+                	}
                 	writer.write(System.lineSeparator());
-                    writer.write(cleanStringInvalidChars(line));
+                    writer.write(cleanStringInvalidChars(line.substring(0, line.length() - 1)));
                 }
                 counter++;
             }
@@ -723,7 +733,9 @@ private static void cleanCSV() {
         catch (IOException e)
         {
             e.printStackTrace();
-        }
+        } catch (CsvValidationException e) {
+			e.printStackTrace();
+		}
         finally
         {
             try

@@ -62,12 +62,29 @@ exports.getOperation = function(args, res, next) {
 
 
       if(lineCount == 0){
-        firstLine = cleanString(data) + "\n";
+        //firstLine = cleanString(data) + "\n";
+        
+        var dataSplit = data.split(",")
+        for(var columnIndex = 0; columnIndex < dataSplit.length; columnIndex++){
+          if(columnIndex < dataSplit.length - 1){
+            firstLine += cleanString(dataSplit[columnIndex]) + ",";
+          } else {
+            firstLine += cleanString(dataSplit[columnIndex]) + "\n";
+          }
+        }
         //console.log("firstLine " + firstLine)
       } 
       else if(rowNumber < limit + offset) {
-        var dataToParse;      
-        dataToParse = firstLine + data;
+        var dataToParse = firstLine;  
+        var dataSplit = data.split(",")
+        for(var columnIndex = 0; columnIndex < dataSplit.length; columnIndex++){
+          if(columnIndex < dataSplit.length - 1){
+            dataToParse += cleanSpaces(dataSplit[columnIndex]) + ",";
+          } else {
+            dataToParse += cleanSpaces(dataSplit[columnIndex]);
+          }
+        }    
+        //dataToParse = firstLine + data;
 
         // From csv to json
         papa.parse(dataToParse, 
@@ -95,6 +112,9 @@ exports.getOperation = function(args, res, next) {
                   if(args[Object.keys(args)[j]].value != undefined){
                     if(Object.keys(args)[j] === Object.keys(result)[Object.keys(result).indexOf(Object.keys(args)[j])]){
                       if(result[Object.keys(result)[Object.keys(result).indexOf(Object.keys(args)[j])]] === args[Object.keys(args)[j]].value + ""){
+                        resultValidator = true && resultValidator;
+                      }
+                      else if(cleanStringInvalidChars(result[Object.keys(result)[Object.keys(result).indexOf(Object.keys(args)[j])]]) === args[Object.keys(args)[j]].value + ""){
                         resultValidator = true && resultValidator;
                       }
                       else if(args[Object.keys(args)[j]].value + "" === "all" && result[Object.keys(result)[Object.keys(result).indexOf(Object.keys(args)[j])]].replace(/\s+/g, '') != ""){
@@ -305,10 +325,27 @@ function writeTextFile(file, content)
   }
 }
 
+function cleanStringInvalidChars(s) {
+  s = s.split("\u00f1").join("ny");
+  s = s.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  s = s.split("\"").join("");
+  s = s.split("\'").join("");
+  s = s.split("\\P{Print}").join("");
+  return s;
+}
+
+function cleanSpaces(s) {
+  s = s.trim();
+  if(s.length > 0 && s.charAt(0) === " "){
+    s = s.substr(1);
+  }
+  return s;
+}
+
 function cleanString(s) {
+  s = s.split("\u00f1").join("ny");
   s = s.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   s = s.trim();
-  s = s.split(" ").join("");
   s = s.split("/").join("");
   s = s.split("\"").join("");
   s = s.split("\'").join("");
@@ -322,6 +359,10 @@ function cleanString(s) {
   s = s.split("\\{").join("_");
   s = s.split("\\}").join("_");
   s = s.split("\\P{Print}").join("");
+  s = s.split(" ").join("_");
+  if(s.length > 0 && s.charAt(0) === "_"){
+    s = s.substr(1);
+  }
   return s;
 }
 
