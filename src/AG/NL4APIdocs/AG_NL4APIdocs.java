@@ -107,6 +107,28 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
 import NL4OpenAPI.NL4OpenAPI;
 
 public class AG_NL4APIdocs {
@@ -159,8 +181,8 @@ public class AG_NL4APIdocs {
 			switch (args[0]) {
 				case "csv2api" : csv2api(args);
 					break;
-				/*case "openapi2api" : openapi2api(args);
-					break;*/
+				case "openapi2api" : openapi2api(args);
+					break;
 				case "xmi2api" : xmi2api(args);
 					break;
 				case "xmi2json" : xmi2json(args);
@@ -171,12 +193,12 @@ public class AG_NL4APIdocs {
 					break;
 				case "csv2openapi" : csv2openapi(args);
 					break;
-				default : System.out.println("No operation called: try csv2api");
+				default : System.out.println("No operation called: try openapi2api");
 					break;
 			}
 		} else {
 			//Default operation without parameters
-			csv2api(args);
+			openapi2api(args);
 		}
                 
 	}
@@ -244,33 +266,60 @@ public class AG_NL4APIdocs {
 		
 	}
 	
-	/*private static void openapi2api(String[] args) {
+	private static void openapi2api(String[] args) {
 		System.out.println("openapi2api");
 
 		//args: openapi2api
 		openapi2api = true;
 		
-		//args: openapi2api data openapi.json 
-		if(args.length == 3) {
-			fileName = args[1];
-			swaggerFileName = args[2];
+		//args: openapi2api openapi.json 
+		if(args.length == 2) {
+			openAPIFileName = args[1];
 		}
 		
-		File source = new File(swaggerFileName);
-		File dest = new File(tempFolderName + File.separator + swaggerFileName);
+		File source = new File(openAPIFileName);
+		File dest = new File(mainFolderName + File.separator + tempFolderName + File.separator + openAPIFileName);
 		try {
 		    FileUtils.copyFile(source, dest);
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
-	
+				
+		NL4OpenAPI nl4openapi = new NL4OpenAPI
+				(mainFolderName + File.separator + tempFolderName + File.separator + openAPIFileName,
+						mainFolderName + File.separator + tempFolderName + File.separator + openAPIFileName);
+		
+		nl4openapi.openapi2NL();
+		JSONObject jsonObject = new JSONObject();
+		String content = "";
+		try {
+			content = new String(Files.readAllBytes(Paths.get(mainFolderName + File.separator + tempFolderName + File.separator + openAPIFileName)));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			jsonObject = new JSONObject(content);
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		String swaggerStringFormatted = openapi2swagger(jsonObject);
+		
+		try (PrintWriter out = new PrintWriter(mainFolderName + File.separator + tempFolderName 
+				+ File.separator + swaggerFileName)) {
+		    out.println(swaggerStringFormatted);
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+		}
+		
 	    generateServer();
         addServerDependencies();
         generateApiCode();
         runApi();
-        generateVisualisation();
+        //generateVisualisation();
         System.out.println("Automatic API Generation finished!");
-	}*/
+	}
 	
 	private static void xmi2api(String[] args) {
 		System.out.println("xmi2api");
@@ -1670,6 +1719,17 @@ private static void cleanCSV() {
 			System.out.println(e.getMessage());
 		}
 		
+		swaggerStringFormatted = openapi2swagger(xmlJSONObj);
+		
+		try (PrintWriter out = new PrintWriter(mainFolderName + File.separator + tempFolderName 
+				+ File.separator + swaggerFileName)) {
+		    out.println(swaggerStringFormatted);
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	private static String openapi2swagger(JSONObject xmlJSONObj) {
 		// Parse to swagger		
 		try {
 			InputStream is = new FileInputStream(mainFolderName + File.separator + tempFolderName + File.separator + openAPIFileName);
@@ -1852,10 +1912,10 @@ private static void cleanCSV() {
             definitionsSchemes.put(definitionScheme);
             xmlSwaggerObj.put("schemes", definitionsSchemes);
             
-            swaggerString = xmlSwaggerObj.toString();
+            String swaggerString = xmlSwaggerObj.toString();
             ObjectMapper swaggerFormatter = new ObjectMapper();
             Object jsonSwagger = swaggerFormatter.readValue(swaggerString, Object.class);
-            swaggerStringFormatted = swaggerFormatter.writerWithDefaultPrettyPrinter().writeValueAsString(jsonSwagger);
+            return swaggerFormatter.writerWithDefaultPrettyPrinter().writeValueAsString(jsonSwagger);
             
         } catch (JSONException e) {
 			System.out.println(e.getMessage());
@@ -1867,12 +1927,9 @@ private static void cleanCSV() {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-		
-		try (PrintWriter out = new PrintWriter(mainFolderName + File.separator + tempFolderName + File.separator + swaggerFileName)) {
-		    out.println(swaggerStringFormatted);
-		} catch (FileNotFoundException e) {
-			System.out.println(e.getMessage());
-		}
+			
+		return "";
+				
 	}
 	
 	/*private static void generateApiDefinition() {
